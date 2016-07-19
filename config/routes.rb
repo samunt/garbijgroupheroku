@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :spaces
   resources :transactions
+  resources :sessions, only: [:new, :create, :destroy]
 
   root 'spaces#index'
 

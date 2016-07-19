@@ -1,14 +1,20 @@
 class SessionsController < ApplicationController
 
-def new
-  @session = Session.new
-end
+  def new
+  end
 
-def create
-  @session = Session.new(params[])
-end
+  def create
+    if @user = login(params[:email], params[:password])
+     redirect_back_or_to(root_path, alert: 'Login successful!')
+   else
+     flash.now[:alert] = 'Login failed!'
+     render action: 'new'
+    end
+  end
 
-def destroy
-  @session = Session.find()
-  @session.destroy 
+  def destroy
+    logout
+    redirect_to(root_path, alert: 'Logged out')
+  end
+
 end

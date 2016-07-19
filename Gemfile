@@ -23,6 +23,21 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#FOR PASSWORD AUTHENTICATION
+gem "sorcery"
+
+#FOR EMAIL VALIDATION
+gem 'validates_email_format_of'
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# 
+# #FOR IMAGES UPLOAD
+# gem 'carrierwave'
+# gem 'mini_magick'
+
+
+gem 'figaro'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,4 +59,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
