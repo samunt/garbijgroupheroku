@@ -1,5 +1,14 @@
-<h1><%= @user.first_name %>'s Space</h1>
+<h1>How much garbage space would you like to sell, <%= @user.first_name %>?</h1>
 
-<p>
-  <%= @space.address %>
-</p>
+<%= form_for [@user, @space] do |f| %>
+
+<div class="form_field">
+  <%= f.label :capacity %><br>
+  <%= f.number_field :capacity %>
+</div>
+
+<div class="submit">
+  <%= f.submit %>
+</div>
+
+<% end %>
