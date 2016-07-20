@@ -15,8 +15,9 @@ before_action :require_login, only: [:edit, :update]
     if @user.save
       UserMailer.welcome_email(@user).deliver_later
       self.current_user = @user
-      redirect_to root_path, alert: 'Signed up'
+      redirect_to root_path, alert: 'Signed up!'
     else
+      flash[:alert] = "Sign up Failed!"
       render :new
     end
   end
