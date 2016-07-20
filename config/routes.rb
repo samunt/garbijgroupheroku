@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :spaces
   end
-  resources :spaces
   resources :transactions
   resources :sessions, only: [:new, :create, :destroy]
 
