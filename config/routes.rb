@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   end
   resources :transactions
   resources :sessions, only: [:new, :create, :destroy]
+  resources :welcome
 
-  root 'sessions#new'
+  root 'welcome#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

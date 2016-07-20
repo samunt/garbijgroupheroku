@@ -17,6 +17,7 @@ before_action :require_login, only: [:edit, :update]
       self.current_user = @user
       redirect_to new_session_path, alert: 'Signed up'
     else
+      flash[:alert] = "Sign up Failed!"
       render :new
     end
   end
