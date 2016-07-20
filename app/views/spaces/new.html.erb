@@ -1,32 +1,22 @@
 <h1>Spaces#new</h1>
-<% form_for @spaces do |f| %>
+<%= form_for @space do |f| %>
 
-div class="newuser">
-    <h1 class="sign-up-title">Sign Up!</h1>
+ <div class="newspace">
+    <h1 class="new-space-title">Add Your Home</h1>
 
     <div class="form_field">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name %>
+      <%= f.label :capacity %><br>
+      <%= f.number_field :capacity %>
     </div>
 
     <div class="form_field">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %>
+      <%= f.label :address %><br>
+      <%= f.text_field :address, placeholder: "121 Street Lane, Toronto, ON" %>
     </div>
 
     <div class="form_field">
-      <%= f.label :email %><br>
-      <%= f.email_field :email %>
-    </div>
-
-    <div class="form_field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="form_field">
-      <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation %>
+      <%= f.label :garbaje_day %><br>
+      <%= f.text_field :garbaje_day, placeholder: "e.x. Tuesday" %>
     </div>
 
     <div class="submit">
