@@ -13,7 +13,7 @@ before_action :require_login, only: [:edit, :update]
   def create
     @user = User.new(user_params)
     if @user.save
-      #UserMailer.welcome(@user).deliver_later
+      UserMailer.welcome_email(@user).deliver_later
       self.current_user = @user
       redirect_to root_path, alert: 'Signed up'
     else
