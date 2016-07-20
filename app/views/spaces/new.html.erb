@@ -1,2 +1,23 @@
 <h1>Spaces#new</h1>
-<p>Find me in app/views/spaces/new.html.erb</p>
+<%= form_for [@user, @space] do |f| %>
+
+ <div class="newspace">
+    <h1 class="new-space-title">Add Your Home</h1>
+
+
+    <div class="form_field">
+      <%= f.label :address %><br>
+      <%= f.text_field :address, placeholder: "121 Street Lane, Toronto, ON" %>
+    </div>
+
+    <div class="form_field">
+      <%= f.label :garbaje_day %><br>
+      <%= f.text_field :garbaje_day, placeholder: "e.x. Tuesday" %>
+    </div>
+
+    <div class="submit">
+      <%= f.submit %>
+    </div>
+</div>
+
+<% end %>
