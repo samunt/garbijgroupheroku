@@ -9,16 +9,13 @@
       <%= f.text_field :address, placeholder: "121 Street Lane, Toronto, ON" %>
     </div>
 
+    <br />
+    
     <div class="form_field">
       <%= f.label :garbaje_day %><br>
-      <%= f.text_field :garbaje_day, placeholder: "e.x. Tuesday" %>
+      <%= f.select :garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
     </div>
-
-    <div class="form_field">
-      <%= f.label :capacity %><br>
-      <%= f.number_field :capacity, placeholder: "GTA users ~ 5 bags" %>
-    </div>
-
+    <br />
     <div class="submit">
       <%= f.submit %>
     </div>
