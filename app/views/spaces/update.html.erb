@@ -1,6 +1,6 @@
 <h1>Thank you <%= @user.first_name %></h1>
 
-<%= @user.spaces.each do |space| %>
+<% @user.spaces.each do |space| %>
   <td>
       <%= space.capacity %>
   </td>
