@@ -1,0 +1,8 @@
+<% @spaces.each do |x| %>
+  <% next if x.capacity == nil || x.capacity <= 0 %>
+  <ul class = "all-list">
+    <li><p>Address: <%= x.address %></p></li>
+    <li><p>Capacity: <%= x.capacity %></p></li>
+    <li><p>Garbage Day: <%= x.garbaje_day %></p></li>
+  </ul>
+<% end %>
