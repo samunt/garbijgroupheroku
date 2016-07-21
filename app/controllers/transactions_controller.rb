@@ -4,6 +4,7 @@ class TransactionsController < ApplicationController
     #@spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
     @spaces = Space.all
+    render layout: false
     # @user = User.find(params[:id])
   end
 

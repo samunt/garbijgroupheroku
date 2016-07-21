@@ -4,7 +4,7 @@ class SpacesController < ApplicationController
     @user = current_user
     if request.xhr?
       @spaces.near([params[:latitude], params[:logitude]])
-      render partial: 'spaces'
+      render partial: 'spaces', layout: false
     else
       @spaces = Space.all
     end
