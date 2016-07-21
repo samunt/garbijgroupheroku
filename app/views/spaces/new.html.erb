@@ -1,4 +1,3 @@
-<h1>Spaces#new</h1>
 <%= form_for [@user, @space] do |f| %>
 
  <div class="newspace">
@@ -13,6 +12,11 @@
     <div class="form_field">
       <%= f.label :garbaje_day %><br>
       <%= f.text_field :garbaje_day, placeholder: "e.x. Tuesday" %>
+    </div>
+
+    <div class="form_field">
+      <%= f.label :capacity %><br>
+      <%= f.number_field :capacity, placeholder: "GTA users ~ 5 bags" %>
     </div>
 
     <div class="submit">
