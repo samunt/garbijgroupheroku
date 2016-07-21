@@ -10,8 +10,10 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
-    @space.user_id = params[:user_id]
-    if @space.save
+    #puts @space
+    #debug(space_params)
+    # @space.user_id = params[:user_id]
+      if @space.save
       redirect_to root_path #need to go to the last space
     else
       render :new
@@ -20,6 +22,8 @@ class SpacesController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
+    @space.capacity = params.space.capacity.to_i
+    #@space.update_attributes(capacity: @space.capacity)
   end
 
   def show
