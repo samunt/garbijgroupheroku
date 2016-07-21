@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160720222546) do
+=======
+ActiveRecord::Schema.define(version: 20160721000559) do
+>>>>>>> 63a1d6b81b7d51d67fc878991b18dcf43e4b1058
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "capacity"
@@ -30,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160720222546) do
     t.date     "transaction_date"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "quantity"
   end
 
   create_table "users", force: :cascade do |t|

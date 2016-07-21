@@ -10,11 +10,14 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
+
     #puts @space
     #debug(space_params)
-    # @space.user_id = params[:user_id]
-      if @space.save
-      redirect_to root_path #need to go to the last space
+
+    @space.user_id = params[:user_id]
+    if @space.save
+      redirect_to user_path(current_user) #need to go to the last space
+
     else
       render :new
     end
@@ -31,13 +34,18 @@ class SpacesController < ApplicationController
     @space = @user.spaces.find(params[:id])
   end
 
-  def delete
+  def destroy
     @space = Space.find(params[:id])
     @space.destroy
+
+    respond_to do |format|
+      format.html { redirect_to user_path(current_user) }
+      format.xml  { head :ok }
+    end
   end
 
   private
   def space_params
-    params.require(:space).permit(:capacity, :address, :garbage_day, :user_id)
+    params.require(:space).permit(:capacity, :address, :garbaje_day, :user_id)
   end
 end
