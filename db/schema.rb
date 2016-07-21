@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721164342) do
+ActiveRecord::Schema.define(version: 20160721165940) do
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "capacity"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160721164342) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "substract"
-    t.string   "lattitude"
+    t.string   "latitude"
     t.string   "longitude"
   end
 
