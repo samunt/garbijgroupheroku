@@ -1,4 +1,6 @@
-<h1>Spaces#index</h1>
-<section id="spaces-section">
-  <%= render "spaces" %>
-</section>
+
+Thank you <%= @user.first_name %> to sell <br />
+<% @user.spaces.each do |x| %>
+  Address: <%= x.address %> -
+  Quantity: <%= x.capacity %> <br />
+<% end %>

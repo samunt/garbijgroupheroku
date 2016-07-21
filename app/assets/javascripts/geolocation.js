@@ -13,7 +13,7 @@ $(function(){
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     $.ajax({
-      url: '/users/1/spaces',
+      url: '/transactions',
       method: 'GET',
       data: {latitude :lat, longitude :lon},
       dataType: 'html'

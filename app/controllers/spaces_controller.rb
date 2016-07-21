@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
   def index
     @spaces = Space.all
+    @user = current_user
     if request.xhr?
       @spaces.near([params[:latitude], params[:logitude]])
       render partial: 'spaces'
@@ -33,7 +34,8 @@ class SpacesController < ApplicationController
     @space = @user.spaces.find(params[:id])
     @space.capacity = params[:space][:capacity].to_i
     if @space.save
-      redirect_to user_path(current_user)
+      # redirect_to user_path(current_user)
+      redirect_to user_spaces_path
     end
 
   end

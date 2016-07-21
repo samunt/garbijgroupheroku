@@ -1,8 +1,9 @@
 class TransactionsController < ApplicationController
 
   def index
-    @spaces = Space.find(params[:sell_space_id])
+    #@spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
+    @user = User.find(params[:id])
   end
 
   def show
