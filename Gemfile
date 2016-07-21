@@ -30,7 +30,7 @@ gem "sorcery"
 gem 'validates_email_format_of'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'geocoder'
+
 #
 # #FOR IMAGES UPLOAD
 # gem 'carrierwave'

@@ -24,7 +24,7 @@ class SpacesController < ApplicationController
   def update
     @user = User.find(params[:user_id])
     # update capacity user
-    @space = @user.spaces.first
+    @space = @user.spaces.find(params[:id])
     @space.capacity = params[:space][:capacity].to_i
     if @space.save
       redirect_to user_path(current_user)
