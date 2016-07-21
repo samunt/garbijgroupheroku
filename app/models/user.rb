@@ -16,8 +16,11 @@ class User < ActiveRecord::Base
   end
 
   def sell_spaces
-    self.spaces.where('capacity <= 0')
+    self.spaces.where('capacity < 0')
   end
+
+
+
 
 
 end

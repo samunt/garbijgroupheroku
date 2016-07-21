@@ -14,6 +14,7 @@ before_action :require_login, only: [:edit, :update]
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       UserMailer.welcome_email(@user).deliver_later
       self.current_user = @user
       redirect_to user_path(@user), alert: 'Signed up'
