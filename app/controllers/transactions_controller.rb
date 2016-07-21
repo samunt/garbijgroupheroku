@@ -11,6 +11,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+  
     # @space = @user.spaces.first
     # @space.capacity = params[:space][:capacity].to_i
   end

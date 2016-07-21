@@ -1,6 +1,12 @@
 class SpacesController < ApplicationController
   def index
     @spaces = Space.all
+    if request.xhr?
+      @spaces.near([params[:latitude], params[:logitude]])
+      render partial: 'spaces'
+    else
+      @spaces = Space.all
+    end
   end
 
   def new
