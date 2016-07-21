@@ -1,7 +1,9 @@
 class TransactionsController < ApplicationController
 
   def index
+    #@spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
+    @user = User.find(params[:id])
   end
 
   def show
@@ -10,10 +12,13 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    # @space = @user.spaces.first
+    # @space.capacity = params[:space][:capacity].to_i
   end
 
   def create
     @transaction = Transaction.new(transaction_params)
+
     if @transaction.save
       redirect_to root_path
     else

@@ -3,12 +3,12 @@
 <%= form_for [@user, @space] do |f| %>
 
 <div class="form_field">
-  <%= f.label :capacity %><br>
-  <%= f.number_field :capacity %>
+  <%= f.label :capacity %>
+  <%= f.number_field :capacity, min:1 , max: 4 %>
 </div>
-
+<br />
 <div class="submit">
-  <%= f.submit %>
+  <%= f.submit 'update', data: { confirm: 'Are you confirm that you want sell your spot' } %>
 </div>
 
 <% end %>

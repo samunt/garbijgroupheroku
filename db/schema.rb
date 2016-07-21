@@ -11,15 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721000559) do
+ActiveRecord::Schema.define(version: 20160721165940) do
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "capacity"
-    t.date     "garbaje_day"
+    t.string   "garbaje_day"
     t.integer  "user_id"
     t.string   "address"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "substract"
+    t.string   "latitude"
+    t.string   "longitude"
   end
 
   create_table "transactions", force: :cascade do |t|
