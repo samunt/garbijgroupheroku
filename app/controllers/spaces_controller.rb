@@ -8,6 +8,7 @@ class SpacesController < ApplicationController
     else
       @spaces = Space.all
     end
+
   end
 
   def new

@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
     #@spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
     @spaces = Space.all
-    # @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def show
