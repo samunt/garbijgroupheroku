@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
 
   def index
+    @spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
   end
 
