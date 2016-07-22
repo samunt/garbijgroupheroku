@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :spaces
+  resources :transactions
   resources :users do
     resources :spaces do
-      resource :transactions
+       resource :transactions
     end
   end
 

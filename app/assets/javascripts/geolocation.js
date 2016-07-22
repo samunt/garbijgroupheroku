@@ -33,17 +33,16 @@ $(function(){
 
 
 
-    // if("geolocation" in navigator){
-    //   navigator.geolocation.getCurrentPosition(itWorked, itFailed);
-    //
-    // }else{
-    //   alert("Geolocation not supported. Use a different computer!");
-    // }//end of if
-  })//end of click func
+    if("geolocation" in navigator){
+      navigator.geolocation.getCurrentPosition(itWorked, itFailed);
+
+    }else{
+      alert("Geolocation not supported. Use a different computer!");
+    }//end of if
+});
 
   function itWorked(position){ //What happens when getcurrentlocation works
     console.log("working")
-    console.log(quantity);
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
     $.ajax({
