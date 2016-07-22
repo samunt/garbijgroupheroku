@@ -20,13 +20,15 @@ class TransactionsController < ApplicationController
   end
 
   def show
+
     @transaction = Transaction.find(params[:id])
   end
 
   def new
     @transaction = Transaction.new
-    @user = User.find_by id: '1'
-    @space = @user.spaces[0]
+    
+    # @user = User.find_by id: '1'
+    # @space = @user.spaces[0]
     # @space = @user.spaces.first
     #@space = current_user.spaces
   end
