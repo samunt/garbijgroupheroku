@@ -1,0 +1,3 @@
+// $(function() {
+//   $.('#buy-spot').on
+// }

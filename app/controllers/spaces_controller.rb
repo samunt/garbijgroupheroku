@@ -18,15 +18,28 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
+    @spaces = Space.all
     #puts @space
     #debug(space_params)
-
     @space.user_id = params[:user_id]
-    if @space.save
-      redirect_to user_path(current_user) #need to go to the last space
-    else
-      render :new
+    respond_to do |format|
+      if @space.save
+        format.html { redirect_to @space, notice: 'Spot was successfully created.' }
+        format.json { render :show, status: :created, location: @space }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @space.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
+
+    # @space.user_id = params[:user_id]
+    # if @space.save
+    #   redirect_to user_path(current_user) #need to go to the last space
+    # else
+    #   render :new
+    # end
   end
 
   def update

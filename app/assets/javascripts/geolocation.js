@@ -31,8 +31,6 @@ $(function(){
       $('.geolocation-list').html(responseData);
     })//end of AJAX
 
-
-
     // if("geolocation" in navigator){
     //   navigator.geolocation.getCurrentPosition(itWorked, itFailed);
     //

@@ -1,6 +1,8 @@
 
-Thank you <%= @user.first_name %> to sell <br />
+Thank you <%= @user.first_name %> to sell your spot(s): <br /><br />
+<% y = 1 %>
 <% @user.spaces.each do |x| %>
-  Address: <%= x.address %> -
+  <%= y %>. Address: <%= x.address %> -
   Quantity: <%= x.capacity %> <br />
+  <% y += 1 %>
 <% end %>
