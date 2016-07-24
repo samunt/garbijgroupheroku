@@ -22,7 +22,7 @@ $(function(){
 
     // Submit AJAX request to '/transactions' endpoint.
     $.ajax({
-      url: '/transactions',
+      url: '/spaces',
       method: 'GET',
       data: data,
       dataType: 'html'

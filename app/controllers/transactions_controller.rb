@@ -19,14 +19,23 @@ class TransactionsController < ApplicationController
   end
 
   def show
+
     @transaction = Transaction.find(params[:id])
   end
 
   def new
     @transaction = Transaction.new
+
     # @space = @user.spaces.find
     # @space.capacity = params[:space][:capacity].to_i
     # @space = @user.spaces.find(params[:id])
+
+
+    # @user = User.find_by id: '1'
+    # @space = @user.spaces[0]
+    # @space = @user.spaces.first
+    #@space = current_user.spaces
+
   end
 
   def create

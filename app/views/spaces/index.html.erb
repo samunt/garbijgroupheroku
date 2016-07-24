@@ -5,4 +5,14 @@ Thank you <%= @user.first_name %> to sell your spot(s): <br /><br />
   <%= y %>. Address: <%= x.address %> -
   Quantity: <%= x.capacity %> <br />
   <% y += 1 %>
+
+
+
+<!-- create a for loop to define i for map markers -->
+<%= javascript_tag do %>
+  window.spaces = <%=raw @spaces.to_json %>;
 <% end %>
+<!-- map injected here -->
+  <div id="map" data-latitude="<%= @spaces[0].latitude %>" data-longitude="<%= @spaces[0].longitude %>" data-name="<%= @spaces[0].address %>">
+
+  </div>
