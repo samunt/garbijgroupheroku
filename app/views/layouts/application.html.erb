@@ -7,37 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="nav-bar <%= "nav-homepage" if @homepage %> ">
 
-  <div class="navlinks">
-
-        <div class="home">
-          <%= link_to "Home", root_path %>
-        </div>
-
-      <% if current_user %>
-
-        <div class="logout">
-           <%= link_to "LOG OUT", session_path("current"), method: :delete %>
-        </div>
-
-        <br />
-
-        <div class="myprofile">
-          <%= link_to "My Profile", user_path(current_user) %>
-        </div>
-
-
+    <div class="logo">
+      <% if @homepage %>
+        <%= link_to (image_tag 'garbij_logo.png'), root_path %>
       <% else %>
+        <%= image_tag 'garbij_logo_green.png' %>
+      <% end %>
+    </div> <!--.logo -->
 
-        <div class="signuplogin">
-           <%= link_to "SIGN UP", new_user_path %> /
-           <%= link_to "LOGIN", new_session_path%>
-        </div>
+    <div class="nav-links">
 
-    <% end %>
+        <% if current_user %>
 
-  </div>
+          <div class="logout">
+             <%= link_to "LOG OUT", session_path("current"), method: :delete %>
+          </div>
 
+          <div class="myprofile">
+            <%= link_to "MY PROFILE", user_path(current_user) %>
+          </div>
+
+
+        <% else %>
+
+          <div class="signuplogin">
+             <%= link_to "SIGN UP", new_user_path %> /
+             <%= link_to "LOGIN", new_session_path%>
+          </div>
+
+      <% end %>
+
+    </div><!--.navlinks -->
+  </header><!--.nav-bar -->
   <% if flash[:alert] %>
     <p><%= flash[:alert] %></p>
   <% end %>
@@ -46,8 +49,9 @@
     <p><%= flash[:notice] %></p>
   <% end %>
 
-
-<%= yield %>
+<main id="application_body">
+  <%= yield %>
+</main>
 
 </body>
 </html>
