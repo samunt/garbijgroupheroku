@@ -14,6 +14,6 @@
   <p><strong>Capacity: </strong><%= space.capacity %></p>
   <%= link_to "Delete Bin", user_space_path(@user, space), data: {:confirm => "Are you sure?"}, :method => :delete %> |
   <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-  <%= link_to "Buy Space(s)",  new_user_space_transactions_path(@user, space) %><br>
+  <%= link_to "Buy Space(s)",  new_transaction_path %><br>
   ________________________________
 <% end %>
