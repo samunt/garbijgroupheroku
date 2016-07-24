@@ -56,6 +56,7 @@
   height: 200px;
   text-align: center;
   margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .intro-line {
@@ -66,24 +67,75 @@
 }
 
 .when-you-buy {
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: normal;
+  color: #707070;
   text-align: center;
-  background-color: #0C6847;
-  width: 50%;
-  height: 350px;
-  float: left;
+  /*background-color: #A6C2B8;*/
+  width: 500px;
+  height: 500px;
+  float: right;
+  border-style: inset;
+  border-width: 6px;
+  border-color: #9BA09E;
+  border-radius: 15px;
+  display: inline-block;
+  /*box-shadow: 10px 10px 5px #888888;*/
+
+}
+
+.when-you-buy-list {
+  padding: 0;
+  list-style-type: none;
+  margin: auto;
+  width: 330px;
+  text-align: center;
+}
+
+.trash-bin-full {
+  margin-bottom: 25px;
 }
 
 .when-you-sell {
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: normal;
+  color: #707070;
   text-align: center;
-  background-color: tomato;
-  width: 50%;
-  height: 350px;
+  /*background-color: #A6C2B8;*/
+  width: 500px;
+  height: 500px;
   float: left;
+  border-style: outset;
+  border-width: 6px;
+  border-color: #9BA09E;
+  border-radius: 15px;
+  display: inline-block;
+  /*box-shadow: 10px 10px 5px #888888;*/
+
+}
+
+.when-you-sell-list {
+  padding: 0;
+  list-style-type: none;
+  margin: auto;
+  width: 330px;
+  text-align: center;
+}
+
+.money-bag {
+  margin-bottom: 25px;
+}
+
+.when-you-title {
+  margin-top: 40px;
 }
 
 .container {
-  width: 100%;
+  width: 71%;
   overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+
 }
 
 .garbage-bag {
@@ -103,6 +155,7 @@
 
 .intro-form {
   background-color: #0C6847;
+  margin-top: 40px;
 }
 
 #newuser {
