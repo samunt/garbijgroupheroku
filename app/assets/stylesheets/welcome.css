@@ -130,6 +130,7 @@
 
 .when-you-title {
   margin-top: 40px;
+
 }
 
 .container {
@@ -156,9 +157,9 @@
 }
 
 .intro-form {
-  background-color: #7F9E93;
+  background: linear-gradient(to bottom right, #03261A, #1E8963);
   margin-top: 40px;
-  height: 300px;
+  height: 500px;
 }
 
 #newuser {
