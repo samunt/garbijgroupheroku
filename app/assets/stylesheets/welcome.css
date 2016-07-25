@@ -1,5 +1,5 @@
 .welcome-header {
-  background-image: url("background-image.jpg");
+  background-image: url("city-background.jpg");
   background-size: cover;
   font-family: "Avenir", Arial, sans-serif;
   font-weight: lighter;
@@ -64,6 +64,7 @@
   font-weight: normal;
   font-size: 23px;
   margin-top: 15px;
+  /*border: 2px #0C6847 solid*/
 }
 
 .when-you-buy {
@@ -158,14 +159,37 @@
 
 .intro-form {
   background: linear-gradient(to bottom right, #03261A, #1E8963);
-  margin-top: 40px;
-  height: 500px;
+  margin-top: 100px;
+  height: 680px;
+  width: 100%;
 }
 
-#newuser {
+.signup-container {
+  width: 50%;
   float: left;
 }
 
-#login {
+.login-container {
+  width: 50%;
   float: right;
+}
+
+#newuser {
+  float: right;
+  /*display: inline-block;*/
+  margin-right: 15px;
+}
+
+.newuser {
+  padding-bottom: 50px;
+}
+
+#login {
+  float: left;
+  /*display: inline-block;*/
+  margin-left: 15px;
+}
+
+.loginform {
+  padding-bottom: 50px;
 }
