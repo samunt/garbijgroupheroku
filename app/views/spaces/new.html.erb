@@ -10,12 +10,18 @@
     </div>
 
     <br />
-    
+
     <div class="form_field">
       <%= f.label :garbaje_day %><br>
       <%= f.select :garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
     </div>
     <br />
+
+    <div class="form_field">
+      <%= f.label :capacity %>
+      <%= f.number_field :capacity %>
+    </div>
+
     <div class="submit">
       <%= f.submit %>
     </div>

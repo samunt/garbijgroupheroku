@@ -1,15 +1,15 @@
 
-
 <% @spaces.each do |x| %>
   Address: <%= x.address %> -
   Capacity: <%= x.capacity %> <br />
 <% end %>
 
-<!-- create a for loop to define i for map markers -->
+
 <%= javascript_tag do %>
   window.spaces = <%=raw @spaces.to_json %>;
 <% end %>
+
 <!-- map injected here -->
-  <div id="map" data-latitude="<%= @spaces[0].latitude %>" data-longitude="<%= @spaces[0].longitude %>" data-name="<%= @spaces[0].address %>">
+  <div id="map" data-title="<%= @spaces[0].address %>" data-latitude="<%= @spaces[0].latitude %>" data-longitude="<%= @spaces[0].longitude %>">
 
   </div>
