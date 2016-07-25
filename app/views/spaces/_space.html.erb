@@ -1,19 +1,20 @@
-<div class="col-md-4 blog-main box text-center" id="post_<%= @space.id %>">
+<div class="col-md-4 blog-main box text-center" id="post_<%= space.id %>">
 
             <div class="panel panel-info"><!-- Panel Info -->
 
                   <div class="panel-heading">
-                    <h3 class="panel-title"><%= @space.address %></h3>
-                    <p><%= @space.garbaje_day %></p>
+
+                    <h3 class="panel-title"><%= space.address %></h3>
+                    <p><%= space.garbaje_day %></p>
                   </div>
 
                   <div class="panel-body"><!-- Panel Body -->
 
                     <div class="btn-group" role="group" aria-label="...">
-                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%= @space.id %>">
+                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myupdatepost_<%= space.id %>">
                           Edit
                         </button>
-                        <%= link_to 'Destroy', @space, method: :delete, class: "btn btn-danger", remote: true %>
+                        <%= link_to 'Destroy', space, method: :delete, class: "btn btn-danger", remote: true %>
                     </div>
                   </div><!-- Panel Body -->
 
@@ -21,8 +22,8 @@
 
 
             <!-- Modal - update posts -->
-                  <%= form_for([@user, @space], :method => :put, remote: true) do |f| %>
-                  <div class="modal fade" id="myupdatepost_<%= @space.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <%= form_for([@user, space], :method => :put, remote: true) do |f| %>
+                  <div class="modal fade" id="myupdatepost_<%= space.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -43,7 +44,7 @@
 
                       </div>
                       <div class="modal-footer">
-                        <button type="button" id="myupdatebutton_<%= @space.id %>" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="myupdatebutton_<%= space.id %>" class="btn btn-default" data-dismiss="modal">Close</button>
                         <%= submit_tag "Update", class: "btn btn-primary" %>
                       </div>
                     </div>
