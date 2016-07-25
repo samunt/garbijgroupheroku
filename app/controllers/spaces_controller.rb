@@ -1,14 +1,14 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.all
     @user = current_user
     if request.xhr?
+      @spaces = Space.where("capacity >=? ", params[:quantity])
       @spaces.near([params[:latitude], params[:logitude]])
-      render partial: 'spaces', layout: false
+      puts params
+      render partial: 'spaces'
     else
       @spaces = Space.all
     end
-
   end
 
   def new
