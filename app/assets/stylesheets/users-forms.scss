@@ -17,6 +17,7 @@
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  margin: auto;
 }
 
 .sign-up-title {
@@ -44,6 +45,7 @@
    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+   margin: auto;
 }
 
 .logintitle {
@@ -107,4 +109,61 @@ input {
 
 input {
   margin-bottom: 11px;
+}
+
+.new-login-page {
+    background: linear-gradient(to bottom right, #03261A, #1E8963);
+    margin-top: 100px;
+    height: 410px;
+    width: 100%;
+    padding-top: 45px;
+}
+
+.new-signup-page {
+    background: linear-gradient(to bottom right, #03261A, #1E8963);
+    margin-top: 100px;
+    height: 575px;
+    width: 100%;
+    padding-top: 45px;
+}
+
+.user-profile-container {
+
+  background: linear-gradient(to bottom right, #03261A, #1E8963);
+  margin-top: 100px;
+  height: 410px;
+  width: 100%;
+  padding-top: 45px;
+}
+
+.error_messages li {
+  list-style-type: none;
+  text-align: center;
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: lighter;
+  color: white;
+}
+
+.user-profile {
+  background-color: white;
+  font-family: "Avenir next", Helvetica, sans-serif;
+  color: #4E8D77;
+  // font-weight: lighter;
+  border: 3px solid #A3A3A3;
+  padding-bottom: 35px;
+  padding-top: 20px;
+  width: 300px;
+  text-align: center;
+  line-height: 20px;
+  margin-top: 100px;
+ -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+ -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+ margin: auto;
+}
+
+.user-profile-title {
+  font-family: "Avenir next", Helvetica, sans-serif;
+  color: #4E8D77;
+  font-weight: normal;
 }

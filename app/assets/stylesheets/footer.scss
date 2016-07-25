@@ -1,12 +1,13 @@
 .footer {
   font-family: "Avenir", Arial, sans-serif;
   font-weight: normal;
+  font-size: 11px;
   color: #0C6847;
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1.5rem;
-  background-color: white;
+  padding: 1rem;
+  background: linear-gradient(to bottom right, #D6E8E1, white);
   text-align: center;
 }

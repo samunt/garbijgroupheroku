@@ -13,7 +13,7 @@
       <% if @homepage %>
         <%= link_to (image_tag 'garbij_logo.png'), root_path %>
       <% else %>
-        <%= image_tag 'garbij_logo_green.png', root_path %>
+      <%= link_to (image_tag 'garbij_logo_green.png'), root_path %>
       <% end %>
     </div> <!--.logo -->
 
@@ -21,7 +21,7 @@
 
       <% if current_user %>
         <div class="logout">
-          <%= link_to "LOG OUT", session_path("current"), method: :delete %>
+          <%= link_to "LOG OUT", session_path("current"), class: "green", method: :delete %>
         </div>
         <div class="myprofile">
           <%= link_to "MY PROFILE", user_path(current_user), class: "green" %>
@@ -46,9 +46,9 @@
   <%= yield %>
 </main>
 
-<!-- <div class="footer">&copy Gärbij 2016</div> -->
-
 
 
 </body>
 </html>
+
+<div class="footer">&copy Gärbij 2016</div>

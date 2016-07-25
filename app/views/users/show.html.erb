@@ -1,19 +1,22 @@
+<div class="user-profile-container">
+  <div class="user-profile">
+    <h3 class="user-profile-title">
+      Hello <%= @user.first_name %> <%= @user.last_name %>!
+    </h3>
 
-<h3>
-  Hello <%= @user.first_name %> <%= @user.last_name %>!
-</h3>
+    <!-- eventually make these links an AJAX call -->
+    <%= link_to "Edit Profile", edit_user_path %> |
+    <%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
 
-<!-- eventually make these links an AJAX call -->
-<%= link_to "Edit Profile", edit_user_path %> |
-<%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
-
-<h3>Your Existing Garbage Bins</h3>
-<% @user.spaces.each do |space| %>
-  <p><strong>Address: </strong><%= space.address %></p>
-  <p><strong>Garbage Day: </strong><%= space.garbaje_day %></p>
-  <p><strong>Capacity: </strong><%= space.capacity %></p>
-  <%= link_to "Delete Bin", user_space_path(@user, space), data: {:confirm => "Are you sure?"}, :method => :delete %> |
-  <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-  <%= link_to "Buy Space(s)",  new_transaction_path %><br>
-  ________________________________
-<% end %>
+    <h3>Your Existing Garbage Bins</h3>
+    <% @user.spaces.each do |space| %>
+      <p><strong>Address: </strong><%= space.address %></p>
+      <p><strong>Garbage Day: </strong><%= space.garbaje_day %></p>
+      <p><strong>Capacity: </strong><%= space.capacity %></p>
+      <%= link_to "Delete Bin", user_space_path(@user, space), data: {:confirm => "Are you sure?"}, :method => :delete %> |
+      <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
+      <%= link_to "Buy Space(s)",  new_transaction_path %><br>
+      ________________________________
+    <% end %>
+  </div>
+</div>
