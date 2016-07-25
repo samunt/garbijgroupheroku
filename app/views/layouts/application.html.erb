@@ -2,17 +2,35 @@
 <html>
 <head>
   <title>Garbaje</title>
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+
 </head>
 <body>
 
+  <header class="nav-bar <%= "nav-homepage" if @homepage %> ">
+
+    <div class="logo">
+      <% if @homepage %>
+        <%= link_to (image_tag 'garbij_logo.png'), root_path %>
+      <% else %>
+        <%= image_tag 'garbij_logo_green.png' %>
+      <% end %>
+    </div> <!--.logo -->
+
   <div class="navlinks">
 
-        <div class="home">
-          <%= link_to "Home", root_path %>
-        </div>
 
       <% if current_user %>
 
@@ -36,8 +54,8 @@
 
     <% end %>
 
-  </div>
-
+  </div><!--.navlinks -->
+</header><!--.nav-bar -->
   <% if flash[:alert] %>
     <p><%= flash[:alert] %></p>
   <% end %>
@@ -47,8 +65,11 @@
   <% end %>
 
 
-<%= yield %>
+  <main id="application_body">
+    <%= yield %>
+  </main>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=initMap"
-    async defer></script></body>
+    async defer></script>
+</body>
 </html>

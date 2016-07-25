@@ -3,9 +3,68 @@
   Hello <%= @user.first_name %> <%= @user.last_name %>!
 </h3>
 
-<!-- eventually make these links an AJAX call -->
-<%= link_to "Edit Profile", edit_user_path %> |
-<%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
+<!--  AJAX request for Add New Bin -->
+<div class="container">
+
+    <div class="row">
+      <div class="text-center">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewpost">
+            New Spot
+          </button>
+      </div>
+    </div>
+    <br>
+    <hr>
+
+
+    <h4>Your Existing Garbage Bins</h4>
+    <div class="row" id="container_posts">
+      <!-- <h3>Your Existing Garbage Bins</h3> -->
+      <% @user.spaces.each do |space| %>
+      <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
+      <%= link_to "Buy Space(s)",  new_user_space_transactions_path(@user, space) %><br>
+        <%= render space %>
+
+      <% end %>
+    </div>
+
+
+    <!-- Modal  create action -->
+      <%= form_for([@user,@space], remote: true) do |f| %>
+        <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Spot</h4>
+            </div>
+
+            <div class="modal-body">
+              <div class="field">
+                <%= f.label :address %><br>
+                <%= f.text_area :address, class: "form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :garbage_day %><br>
+                <%= f.select(:garbaje_day, ['Monday', 'Tuesday'], { :class => 'form-control'}) %>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+              <%= submit_tag "Create", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <!-- Modal -->
+
+</div>
+
+
 
 <h3>Your Existing Garbage Bins</h3>
 <% @user.spaces.each do |space| %>

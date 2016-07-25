@@ -1,9 +1,14 @@
 
+Thank you <%= @user.first_name %> to sell your spot(s): <br /><br />
+<% y = 1 %>
+<% @user.spaces.each do |x| %>
+  <%= y %>. Address: <%= x.address %> -
+  Quantity: <%= x.capacity %> <br />
+  <% y += 1 %>
 
-<% @spaces.each do |x| %>
-  Address: <%= x.address %> -
-  Capacity: <%= x.capacity %> <br />
-<% end %>
+  <% end %>
+
+
 
 <!-- create a for loop to define i for map markers -->
 <%= javascript_tag do %>
