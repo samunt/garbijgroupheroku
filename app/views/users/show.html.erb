@@ -3,6 +3,7 @@
   Hello <%= @user.first_name %> <%= @user.last_name %>!
 </h3>
 
+
 <!-- eventually make these links an AJAX call -->
 <%= link_to "Edit Profile", edit_user_path %> |
 <%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
