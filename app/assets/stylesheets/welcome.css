@@ -2,7 +2,7 @@
   background-image: url("city-background.jpg");
   background-size: cover;
   font-family: "Avenir", Arial, sans-serif;
-  font-weight: lighter;
+  font-weight: normal;
   height: 600px;
   text-align: center;
 
@@ -15,8 +15,8 @@
 }
 
 .welcome-title {
-  font-family: "Avenir", Arial, sans-serif;
-  font-weight: lighter;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
   color: white;
   padding-top: 190px;
   margin: 0;
@@ -95,6 +95,8 @@
 
 .trash-bin-full {
   margin-bottom: 25px;
+  margin-top: 25px;
+
 }
 
 .when-you-sell {
@@ -127,11 +129,11 @@
 
 .money-bag {
   margin-bottom: 25px;
+  margin-top: 25px;
 }
 
 .when-you-title {
   margin-top: 40px;
-
 }
 
 .container {
@@ -143,6 +145,7 @@
 }
 
 .garbage-bag {
+
    margin: auto;
    display: block;
    padding-top: 25px;
@@ -193,4 +196,9 @@
 
 .loginform {
   padding-bottom: 50px;
+}
+
+.parallax-window {
+  background: transparent;
+  min-height: 400px;
 }

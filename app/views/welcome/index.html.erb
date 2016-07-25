@@ -1,8 +1,8 @@
 <header class="welcome-header">
   <h1 class="welcome-title">THE SHARED ECONOMY OF GARBAGE.</h1>
-  <h2 class="welcome-subtitle">Buy & sell extra garbage space in a few clicks.</h2>
-  <a style="text-align:center;" href="#newuser" class="btn">GET STARTED!</a>
-  <%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"when-you-sell"%>
+  <h2 class="welcome-subtitle animated fadeInUp">Buy & sell extra garbage space in a few clicks.</h2>
+  <a style="text-align:center;" href="#newuser" class="btn animated fadeInUp">GET STARTED!</a>
+  <a><%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"#when-you-sell" %></a>
 </header>
 
 <div class="introduction">
@@ -12,7 +12,7 @@
   </p>
 </div>
 <div class="container">
-  <div class="sell-container">
+  <div class="sell-container animated fadeInLeft">
     <div class="when-you-sell">
         <h2 class="when-you-title">When you sell!</h2>
         <%= image_tag 'money-bag.png',:width => 100, :height => 95, class:"money-bag", href:"money-bag"%>
@@ -30,8 +30,8 @@
     </div>
   </div>
 
-  <div class="buy-container">
-    <div class="when-you-buy">
+  <div class="buy-container" id="when-you-sell">
+    <div class="when-you-buy animated fadeInRight">
       <h2 class="when-you-title">When you buy!</h2>
       <%= image_tag 'trash-bin-full.png',:width => 100, :height => 95, class:"trash-bin-full", href:"trash-bin-full"%>
       <ul class="when-you-sell-list">
@@ -60,5 +60,5 @@
       <%= render 'sessions/form' %>
     </div>
   </div>
-  
+
 </div>

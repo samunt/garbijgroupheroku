@@ -1,13 +1,24 @@
-.footer {
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+#application_body {
+  min-height: 100%;
+  margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+}
+footer {
+  height: 50px; /* '.push' must be the same height as 'footer' */
   font-family: "Avenir", Arial, sans-serif;
   font-weight: normal;
   font-size: 11px;
   color: #0C6847;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
   padding: 1rem;
-  background: linear-gradient(to bottom right, #D6E8E1, white);
   text-align: center;
+
+}
+
+.push {
+  height: 50px; /* '.push' must be the same height as 'footer' */
 }

@@ -2,9 +2,11 @@
 <html>
 <head>
   <title>Garbaje</title>
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Montserrat' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
   <header class="nav-bar <%= "nav-homepage" if @homepage %> ">
@@ -44,9 +46,10 @@
   <% end %>
 <main id="application_body">
   <%= yield %>
+  <div class="push"></div>
 </main>
 
-<!-- <div class="footer">&copy Gärbij 2016</div> -->
+<footer>&copy Gärbij 2016</footer>
 
 
 </body>
