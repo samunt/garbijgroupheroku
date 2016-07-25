@@ -23,7 +23,7 @@
       <!-- <h3>Your Existing Garbage Bins</h3> -->
       <% @user.spaces.each do |space| %>
       <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-      <%= link_to "Buy Space(s)",  new_user_space_transactions_path(@user, space) %><br>
+      <%= link_to "Buy Space(s)",  transactions_path(@user, space) %><br>
         <%= render space %>
 
       <% end %>

@@ -1,14 +1,14 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.all
     @user = current_user
     if request.xhr?
+      @spaces = Space.where("capacity >=? ", params[:quantity])
       @spaces.near([params[:latitude], params[:logitude]])
-      render partial: 'spaces', layout: false
+      puts params
+      render partial: 'spaces'
     else
       @spaces = Space.all
     end
-
   end
 
   def new
@@ -19,13 +19,9 @@ class SpacesController < ApplicationController
   def create
     @space = Space.new(space_params)
     @spaces = Space.all
-    #puts @space
-    #debug(space_params)
     @space.user_id = params[:user_id]
     respond_to do |format|
       if @space.save
-        #format.html { redirect_to @space, notice: 'Spot was successfully created.' }
-        #format.json { render :show, status: :created, location: @space }
         format.js
       else
         format.html { render :new }
@@ -49,17 +45,16 @@ class SpacesController < ApplicationController
   #  @space = @user.spaces.find(params[:id])
     @space.capacity = params[:space][:capacity].to_i
     @space.update_attributes(space_params);
-    respond_to do |format|
+    # respond_to do |format|
       if @space.save
-        format.js
-        # redirect_to user_path(current_user)
+        # format.js
+        redirect_to user_path(current_user)
         # redirect_to user_spaces_path
       else
         format.html { render :new }
         format.json { render json: @space.errors, status: :unprocessable_entity }
         format.js
       end
-    end
 
   end
 

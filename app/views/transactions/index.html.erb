@@ -1,5 +1,25 @@
 <h1>Buy Spaces</h1>
 
+<div id='map'>
+
+</div>
+
+<%= form_tag do %>
+  <%= label_tag 'Quantity'%>
+  <%= number_field_tag 'quantity' %>
+  <button type="button" id="find-nearby">Find Available Space Near Me!</button>
+<% end %>
+
+
+<%= javascript_tag do %>
+  window.spaces = <%=raw @spaces.to_json %>;
+<% end %>
+
+<div class="geolocation-list">
+
+</div>
+
+<!--
 <section id="spaces-section">
-  <%= render "spaces/spaces" %>
-</section>
+  <%#= render "spaces/spaces" %>
+</section> -->
