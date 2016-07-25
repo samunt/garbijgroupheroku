@@ -1,10 +1,9 @@
 
 function initMap() {
 
-  var mapPlaceholder = $('#map')
 
-  var map = new google.maps.Map(mapPlaceholder[0]), {
-  center: {lat: -34.397, lng: 150.644},
+  var map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 51.2538, lng: 85.3232},
   zoom: 8
   });
 
@@ -21,6 +20,7 @@ function initMap() {
 
     });
 
+    // var bounds = new google.maps.LatLngBounds();
 
     // Display multiple markers on a map
     //new variables initialized
@@ -28,7 +28,7 @@ function initMap() {
     // Loop through our array of markers & place each one on the map
     for( i = 0; i < markers.length; i++ ) {
       var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-      bounds.extend(position);
+      // bounds.extend(position);
       marker = new google.maps.Marker({
       position: position,
       map: map,
@@ -47,7 +47,7 @@ function initMap() {
     })(marker, i));
 
     // Automatically center the map fitting all markers on the screen
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
 
     }
 

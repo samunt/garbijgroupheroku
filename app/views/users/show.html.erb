@@ -14,6 +14,17 @@
   <p><strong>Capacity: </strong><%= space.capacity %></p>
   <%= link_to "Delete Bin", user_space_path(@user, space), data: {:confirm => "Are you sure?"}, :method => :delete %> |
   <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-  <%= link_to "Buy Space(s)",  new_user_space_transactions_path(@user, space) %><br>
+  <%= link_to "Buy Space(s)",  transactions_path %><br>
   ________________________________
 <% end %>
+
+<!-- <h3>Your Recent Transaction History</h3>
+<strong>Garbage Spaces Sold</strong>
+<ul id='sold-spaces'>
+  <%#= @spaces.each do |space| %>
+    <%#= space.buy_transactions.each do |buy_transactions| %>
+      <li>Address: <%#=buy_transaction.quantity %></li>
+</ul> -->
+
+
+<strong>Garbage Spaces Bought</strong>
