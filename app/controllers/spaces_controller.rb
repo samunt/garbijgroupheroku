@@ -1,10 +1,11 @@
 class SpacesController < ApplicationController
   def index
-    @spaces = Space.all
     @user = current_user
     if request.xhr?
+      @spaces = Space.where("capacity >=? ", params[:quantity])
       @spaces.near([params[:latitude], params[:logitude]])
-      render partial: 'spaces', layout: false
+      puts params
+      render partial: 'spaces'
     else
       @spaces = Space.all
     end
@@ -17,25 +18,47 @@ class SpacesController < ApplicationController
 
   def create
     @space = Space.new(space_params)
+    @spaces = Space.all
     #puts @space
     #debug(space_params)
-
     @space.user_id = params[:user_id]
-    if @space.save
-      redirect_to user_path(current_user) #need to go to the last space
-    else
-      render :new
+    respond_to do |format|
+      if @space.save
+        #format.html { redirect_to @space, notice: 'Spot was successfully created.' }
+        #format.json { render :show, status: :created, location: @space }
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @space.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
+
+    # @space.user_id = params[:user_id]
+    # if @space.save
+    #   redirect_to user_path(current_user) #need to go to the last space
+    # else
+    #   render :new
+    # end
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @space = Space.find(params[:id])
+    # @user = User.find(params[:user_id])
     # update capacity user
-    @space = @user.spaces.find(params[:id])
+  #  @space = @user.spaces.find(params[:id])
     @space.capacity = params[:space][:capacity].to_i
-    if @space.save
-      # redirect_to user_path(current_user)
-      redirect_to user_spaces_path
+    @space.update_attributes(space_params);
+    respond_to do |format|
+      if @space.save
+        format.js
+        # redirect_to user_path(current_user)
+        # redirect_to user_spaces_path
+      else
+        format.html { render :new }
+        format.json { render json: @space.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
 
   end
@@ -48,11 +71,6 @@ class SpacesController < ApplicationController
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_path(current_user) }
-      format.xml  { head :ok }
-    end
   end
 
   private

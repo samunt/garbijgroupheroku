@@ -1,24 +1,47 @@
-<%= form_for [@user, @space] do |f| %>
+<div class="container">
 
- <div class="newspace">
-    <h1 class="new-space-title">Add Your Home</h1>
-
-
-    <div class="form_field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address, placeholder: "121 Street Lane, Toronto, ON" %>
+    <div class="row">
+      <div class="text-center">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mynewpost">
+            New Spot
+          </button>
+      </div>
     </div>
 
-    <br />
-    
-    <div class="form_field">
-      <%= f.label :garbaje_day %><br>
-      <%= f.select :garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] %>
-    </div>
-    <br />
-    <div class="submit">
-      <%= f.submit %>
-    </div>
+    <br>
+    <hr>
+
+    <!-- Modal  create action -->
+      <%= form_for([@user,@space], remote: true) do |f| %>
+        <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Spot</h4>
+            </div>
+
+            <div class="modal-body">
+              <div class="field">
+                <%= f.label :address %><br>
+                <%= f.text_area :address, class: "form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :garbage_day %><br>
+                <%= f.select(:garbaje_day, ['Monday', 'Tuesday'], { :class => 'form-control'}) %>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
+              <%= submit_tag "Create", class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <!-- Modal -->
+
 </div>
-
-<% end %>

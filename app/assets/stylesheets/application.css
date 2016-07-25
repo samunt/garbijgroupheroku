@@ -14,3 +14,7 @@
  *= require_self
  *= require "animate.css"
  */
+
+#application_body {
+  margin-top: 100px;
+}

@@ -3,9 +3,15 @@ class TransactionsController < ApplicationController
   def index
     #@spaces = Space.find(params[:sell_space_id])
     @transactions = Transaction.all
-    @spaces = Space.all
-    render layout: false
-    # @user = User.find(params[:id])
+
+    if request.xhr?
+        @spaces = Space.where("capacity >=? ", params[:quantity])
+        @spaces.near([params[:latitude], params[:logitude]])
+        # @spaces = Space.all
+        # @params = params
+    else
+      @spaces = Space.all
+    end
   end
 
   def show
@@ -14,9 +20,6 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
-
-    # @space = @user.spaces.first
-    # @space.capacity = params[:space][:capacity].to_i
   end
 
   def create

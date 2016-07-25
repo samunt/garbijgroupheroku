@@ -2,9 +2,12 @@ Rails.application.routes.draw do
 
   resources :transactions
   resources :sessions, only: [:new, :create, :destroy]
-
+  resources :spaces
+  resources :transactions
   resources :users do
-    resources :spaces
+    resources :spaces do
+       resource :transactions
+    end
   end
 
   root 'welcome#index'
