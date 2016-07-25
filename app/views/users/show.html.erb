@@ -20,10 +20,12 @@
 
     <h4>Your Existing Garbage Bins</h4>
     <div class="row" id="container_posts">
-      <h3>Your Existing Garbage Bins</h3>
+      <!-- <h3>Your Existing Garbage Bins</h3> -->
       <% @user.spaces.each do |space| %>
-
+      <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
+      <%= link_to "Buy Space(s)",  new_user_space_transactions_path(@user, space) %><br>
         <%= render space %>
+
       <% end %>
     </div>
 
@@ -63,10 +65,6 @@
 </div>
 
 
-
-<!-- eventually make these links an AJAX call -->
-<%= link_to "Edit Profile", edit_user_path %> |
-<%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
 
 <h3>Your Existing Garbage Bins</h3>
 <% @user.spaces.each do |space| %>
