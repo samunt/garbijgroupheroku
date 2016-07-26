@@ -1,8 +1,17 @@
 <header class="welcome-header">
-  <h1 class="welcome-title animated fadeInDown">THE SHARED ECONOMY OF GARBAGE.</h1>
-  <h2 class="welcome-subtitle animated fadeInUp">Buy & sell extra garbage space in a few clicks.</h2>
-  <a style="text-align:center;" href="#newuser" class="btn animated fadeInUp">GET STARTED!</a>
-  <a><%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"#when-you-sell" %></a>
+  <div class="home-vid">
+    <div id="video">
+      <video preload="preload" id="video" autoplay="autoplay" loop="loop">
+        <source src="<%= asset_path "Toronto2.mp4" %>" type="video/mp4"></source>
+      </video>
+    </div>
+  </div>
+  <div class="home-title-button">
+    <h1 class="welcome-title animated fadeInDown">THE SHARED ECONOMY OF GARBAGE.</h1>
+    <h2 class="welcome-subtitle animated fadeInUp">Buy & sell extra garbage space in a few clicks.</h2>
+    <a style="text-align:center;" href="#newuser" class="btn animated fadeIn">GET STARTED!</a>
+    <a><%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"#when-you-sell" %></a>
+  </div>
 </header>
 
 <div class="introduction">
@@ -30,11 +39,11 @@
     </div>
   </div>
 
-  <div class="buy-container" id="when-you-sell">
-    <div class="when-you-buy animated fadeInRight">
+  <div class="buy-container">
+    <div class="when-you-buy animated">
       <h2 class="when-you-title">When you buy!</h2>
       <%= image_tag 'trash-bin-full.png',:width => 100, :height => 95, class:"trash-bin-full", href:"trash-bin-full"%>
-      <ul class="when-you-sell-list">
+      <ul class="when-you-buy-list">
         <li>
           See if your neighbours have extra space in their garbage and save money!
         </li>
@@ -50,14 +59,16 @@
 </div> <!-- containter -->
 
 <div class="intro-form">
-  <div class="signup-container animated fadeInUp">
-    <div id="newuser">
-      <%= render 'users/form' %>
+  <div class="intro-form-container">
+    <div class="signup-container animated fadeInUp">
+      <div id="newuser">
+        <%= render 'users/form' %>
+      </div>
     </div>
-  </div>
-  <div class="login-container animated fadeInUp">
-    <div id="login">
-      <%= render 'sessions/form' %>
+    <div class="login-container animated fadeInUp">
+      <div id="login">
+        <%= render 'sessions/form' %>
+      </div>
     </div>
   </div>
 </div>
