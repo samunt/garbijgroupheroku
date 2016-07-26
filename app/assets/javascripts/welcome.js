@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-var $animation_elements = $('.when-you-sell');
+var $animation_elements = [$('.when-you-sell'), $('.when-you-buy'), $('.signup-container'), $('.login-container')] ;
 var $window = $(window);
 
 function check_if_in_view() {
@@ -16,7 +16,18 @@ function check_if_in_view() {
     //check to see if this current container is within viewport
     if ((element_bottom_position >= window_top_position) &&
         (element_top_position <= window_bottom_position)) {
-      $element.addClass('fadeInLeft');
+        if ($($element).hasClass( "when-you-sell" )) {
+          $element.addClass('fadeInLeft');
+        }
+        else if ($($element).hasClass( "when-you-buy" )) {
+          $element.addClass('fadeInRight');
+        }
+        else if ($($element).hasClass( "signup-container" )) {
+          $element.addClass('fadeInUp');
+        }
+        else if ($($element).hasClass( "login-container" )) {
+          $element.addClass('fadeInUp');
+        }
     }
   });
 }
