@@ -12,9 +12,9 @@ Rails.application.configure do
   config.after_initialize do
     ActiveMerchant::Billing::Base.mode = :test
     ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
-      :login => "seller_1229899173_biz_api1.railscasts.com",
-      :password => "FXWU58S7KXFC6HBE",
-      :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+      :login => "garbagebitmaker-facilitator_api1.gmail.com",
+      :password => "7VFT7CJSYDR75SYE",
+      :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AlBPsr46eZaQjuTqIS7fRb7YZ0GB"
     )
   end
 
