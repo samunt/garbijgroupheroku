@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :transactions
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :spaces
   resources :transactions
