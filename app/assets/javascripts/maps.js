@@ -1,6 +1,8 @@
-function initMap() {
 
 
+
+function makeMap(){
+  console.log("new function");
   var map = new google.maps.Map(document.getElementById('map'), {
   center: {lat: 43.6532, lng: 79.3832},
   zoom: 4
@@ -31,7 +33,7 @@ function initMap() {
       position: position,
       // returns address on hover
       title: markers[i][0],
-      icon:'/images/garbage-marker.png',
+      icon: '/assets/garbage-marker-22px.png',
       map: map
       });
 
@@ -56,4 +58,11 @@ function initMap() {
     //   google.maps.event.removeListener(boundsListener);
     // });
 
-}
+};
+
+// $(document).ready(function(){
+//
+// function initMap() {
+// }
+//
+// });
