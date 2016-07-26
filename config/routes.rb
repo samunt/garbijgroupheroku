@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get "paypal_express/checkout"
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :spaces

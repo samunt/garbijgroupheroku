@@ -16,6 +16,7 @@
     </div>
     <br>
     <hr>
+    <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), :controller => 'paypal_express', :action => 'checkout' %>
 
 
     <h4>Your Existing Garbage Bins</h4>
@@ -23,7 +24,7 @@
       <!-- <h3>Your Existing Garbage Bins</h3> -->
       <% @user.spaces.each do |space| %>
       <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-      <%= link_to "Buy Space(s)",  transactions_path(@user, space) %><br>
+      <%= link_to "Buy Space(s)", transactions_path %><br>
         <%= render space %>
 
       <% end %>

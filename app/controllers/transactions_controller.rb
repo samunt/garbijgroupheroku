@@ -23,6 +23,9 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    @user = current_user
+    @spaces = Space.all
+    @space = Space.find(params[:space_id])
   end
 
   def create
@@ -45,7 +48,7 @@ class TransactionsController < ApplicationController
 
   private
   def transaction_params
-    params.require(:transaction).permit(:buy_space_id, :sell_space_id, :total_fee, :transaction_date)
+    params.require(:transaction).permit(:buy_space_id, :sell_space_id, :total_fee, :transaction_date, :quantity)
   end
 
 end
