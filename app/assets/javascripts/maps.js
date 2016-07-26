@@ -1,34 +1,8 @@
-<h1>Buy Spaces</h1>
-
-<div id='map'></div>
-
-<%= javascript_tag do %>
-  window.spaces = <%=raw @spaces.to_json %>;
-<% end %>
-
-<%= form_tag do %>
-  <%= label_tag 'Quantity'%>
-  <%= number_field_tag 'quantity' %>
-  <button type="button" id="find-nearby">Find Available Space Near Me!</button>
-<% end %>
-
-
-<div class="geolocation-list">
-
-</div>
-
-<!--
-<section id="spaces-section">
-  <%#= render "spaces/spaces" %>
-</section> -->
-
-<script>
-
 function initMap() {
 
 
   var map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 51.2538, lng: 85.3232},
+  center: {lat: 43.6532, lng: 79.3832},
   zoom: 4
   });
 
@@ -48,16 +22,18 @@ function initMap() {
     // var bounds = new google.maps.LatLngBounds();
 
     var infoWindow = new google.maps.InfoWindow(), marker, i;
+    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
     // Loop through our array of markers & place each one on the map
     for( i = 0; i < markers.length; i++ ) {
       var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
       // bounds.extend(position);
-      marker = new google.maps.Marker({
+      var marker = new google.maps.Marker({
       position: position,
-      map: map,
       // returns address on hover
-      title: markers[i][0]
-        });
+      title: markers[i][0],
+      icon:'/images/garbage-marker.png',
+      map: map
+      });
 
     // Allow each marker to have an info window
     //no clue what these lines do????
@@ -75,10 +51,9 @@ function initMap() {
     }
 
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once) WUT?
-    var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-      this.setZoom(14);
-      google.maps.event.removeListener(boundsListener);
-    });
+    // var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+    //   this.setZoom(7);
+    //   google.maps.event.removeListener(boundsListener);
+    // });
 
 }
-</script>
