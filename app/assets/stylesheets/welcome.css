@@ -1,5 +1,4 @@
 .welcome-header {
-<<<<<<< HEAD
   background-image: url("city-background.jpg");
   background-size: cover;
   font-family: "Avenir", Arial, sans-serif;
@@ -250,7 +249,7 @@
 
 #video-background {
 /*  making the video fullscreen  */
-  position: absolute;
+  /*position: absolute;
   display: block;
   right: 0;
   bottom: 0;
@@ -262,4 +261,4 @@
   margin: 0 auto;
   object-fit: cover;
   padding: 0;
-}*/
+}*//*/

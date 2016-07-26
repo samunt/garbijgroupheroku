@@ -56,6 +56,7 @@
                 <%= f.label :garbage_day %><br>
                 <%= f.select(:garbaje_day, ['Monday', 'Tuesday'], { :class => 'form-control'}) %>
               </div>
+
             </div>
 
             <div class="modal-footer">
@@ -71,16 +72,7 @@
 </div>
 
 
-<h3>Your Existing Garbage Bins</h3>
-<% @user.spaces.each do |space| %>
-  <p><strong>Address: </strong><%= space.address %></p>
-  <p><strong>Garbage Day: </strong><%= space.garbaje_day %></p>
-  <p><strong>Capacity: </strong><%= space.capacity %></p>
-  <%= link_to "Delete Bin", user_space_path(@user, space), data: {:confirm => "Are you sure?"}, :method => :delete %> |
-  <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-  <%= link_to "Buy Space(s)",  transactions_path %><br>
-  ________________________________
-<% end %>
+
 
 <!-- <h3>Your Recent Transaction History</h3>
 <strong>Garbage Spaces Sold</strong>
