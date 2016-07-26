@@ -17,16 +17,16 @@ function check_if_in_view() {
     if ((element_bottom_position >= window_top_position) &&
         (element_top_position <= window_bottom_position)) {
         if ($($element).hasClass( "when-you-sell" )) {
-          $element.addClass('fadeInLeft');
+          $element.addClass('fadeInLeftBig');
         }
         else if ($($element).hasClass( "when-you-buy" )) {
-          $element.addClass('fadeInRight');
+          $element.addClass('fadeInRightBig');
         }
         else if ($($element).hasClass( "signup-container" )) {
-          $element.addClass('fadeInUp');
+          $element.addClass('fadeInUpBig');
         }
         else if ($($element).hasClass( "login-container" )) {
-          $element.addClass('fadeInUp');
+          $element.addClass('fadeInUpBig');
         }
     }
   });
