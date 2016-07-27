@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :spaces
+  resources :orders, only: [:new, :create]
+  get "express_checkout" => 'orders#express_checkout', as: :express_checkout
   resources :transactions
   resources :users do
     resources :spaces do
