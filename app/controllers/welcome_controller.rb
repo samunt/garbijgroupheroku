@@ -7,9 +7,8 @@ class WelcomeController < ApplicationController
     @sum = 0 #counter for the how much we saved you line on the welcome page
     @transaction_money.each do |x|
       @sum += x.total_fee
-    end
     #end of the counter
+    end
   end
-
 
 end
