@@ -1,9 +1,9 @@
 
 <div class="edit-profile">
-  
-    <h1>Edit User Info</h1>
+  <div class="edit-container">
+    <h1 class="edit-user-title">Edit User Info</h1>
 
-  <%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
 
     <div class="form_field">
       <%= f.label :first_name %>
@@ -19,8 +19,6 @@
       <%= f.label :email %>
       <%= f.email_field :email %>
     </div>
-
-
 
     <p>Want to change your password? Do it here.</p>
 
@@ -38,5 +36,6 @@
       <%= f.submit %>
     </div>
 
+  </div>
   <% end %>
 </div>
