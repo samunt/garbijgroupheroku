@@ -1,7 +1,7 @@
 <h1>New Transaction</h1>
 
-<br />
-<br />
+  <br />
+  <br />
   <h4>Hey <%= @user.first_name%>,</h4> <br />
   you choose
   <%= @spaces.each do |space| %>
@@ -15,12 +15,11 @@
     <div class="form_field">
       <%= f.hidden_field :sell_space_id, :value => @space.id %>
       <%= f.hidden_field :quantity, :value => @space.capacity %>
-
     </div>
-      <div class="submit">
-        <%= f.submit %>
-      </div>
+    <div class="submit">
+      <%= f.submit %>
     </div>
+    <!-- </div> -->
   <% end %>
 
-  <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), :controller => 'orders', :action => 'express_checkout' %>
+  <%= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png"), :controller => 'orders', :action => 'express_checkout' %>
