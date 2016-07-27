@@ -38,4 +38,23 @@ function getQuantity(){
   function itFailed(error){
     console.log("not working")
   }
+
+// This is where the AJAx is going to go. The button is on the /user/:id page
+//It will take data from the /user/id/spaces/id page
+//Data will transplant to the
+    $('.sellspacebutton').on('click', function(e){
+      console.log("BUTTON CLICK OMG")
+      e.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        method: 'get',
+        data: { },
+        dataType: 'html'
+      }).done(function(responseData){
+        console.log(responseData)
+        $('#dropsellspacehere').html(responseData);
+      });
+    });
+
+
 });

@@ -9,7 +9,7 @@
 
 
 <!--  AJAX request for Add New Bin -->
-<div class="container">
+<div class="ajax-container">
 
     <div class="row">
       <div class="text-center">
@@ -27,7 +27,7 @@
     <div class="row" id="container_posts">
       <!-- <h3>Your Existing Garbage Bins</h3> -->
       <% @user.spaces.each do |space| %>
-      <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
+      <%= link_to "Sell Space(s)", user_space_path(@user, space), class: 'sellspacebutton' %> |
       <%= link_to "Buy Space(s)",  transactions_path(@user, space) %><br>
         <%= render space %>
 
@@ -68,8 +68,14 @@
       <% end %>
     <!-- Modal -->
 
+   <!-- this is where we are going to AJAX in the sell space from usr/id/spaces/id -->
+
+
 </div>
 
+<div id="dropsellspacehere">
+
+</div>
 
 <h3>Your Recent Transaction History</h3>
 <strong>Garbage Spaces Sold</strong><br>
