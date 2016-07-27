@@ -1,78 +1,63 @@
 <header class="welcome-header">
-  <div class="home-vid">
-    <div id="video">
-      <video preload="preload" id="video" autoplay="autoplay" loop="loop">
-        <source src="<%= asset_path "Toronto2.mp4" %>" type="video/mp4"></source>
-      </video>
-    </div>
-  </div>
-  <div class="home-title-button">
-    <h1 class="welcome-title animated fadeInDown">THE SHARED ECONOMY OF GARBAGE.</h1>
-    <h2 class="welcome-subtitle animated fadeInUp">Buy & sell extra garbage space in a few clicks.</h2>
-    <a style="text-align:center;" href="#newuser" class="btn animated fadeIn">GET STARTED!</a>
-    <a><%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"#when-you-sell" %></a>
-  </div>
+  <h1 class="welcome-title">THE SHARED ECONOMY OF GARBAGE.</h1>
+  <h2 class="welcome-subtitle animated fadeInUp">Buy & sell extra garbage space in a few clicks.</h2>
+  <a style="text-align:center;" href="#newuser" class="btn animated fadeInUp">GET STARTED!</a>
+  <a><%= image_tag 'downward-arrow.png', class:"downward-arrow", href:"#when-you-sell" %></a>
 </header>
 
-<div class="welcome-content">
-  <div class="divider"> </div>
-  <div class="introduction animated fadeIn">
-    <%= image_tag 'money-bags.png', :width => 100, :height => 95, class:"garbage-bag" %>
-    <p class="intro-line">
-      We have saved buyers <strong>$1705.50</strong> since launch!
-    </p>
+<div class="introduction">
+  <%= image_tag 'money-bags.png', :width => 100, :height => 95, class:"garbage-bag" %>
+  <p class="intro-line">
+    We have saved buyers <strong id="moneySaved">$<%= @sum %></strong> since launch!
+  </p>
+</div>
+<div class="container">
+  <div class="sell-container">
+    <div class="when-you-sell animated fadeInLeft">
+        <h2 class="when-you-title">When you sell!</h2>
+        <%= image_tag 'money-bag.png',:width => 100, :height => 95, class:"money-bag", href:"money-bag"%>
+      <ul class="when-you-sell-list">
+        <li>
+          If you've got extra space in your garbage, you can make money!
+        </li>
+        <br />
+        <li>
+          When you sell your garbage space, you and your fellow neighbours will both
+          benifit! You're helping them save money, all the while you're making money!
+          The less garbage you have come garbage day, could mean more money in your pocket!
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="container">
-    <div class="sell-container">
-      <div class="when-you-sell animated">
-          <h2 class="when-you-title">When you sell!</h2>
-          <%= image_tag 'money-bag.png',:width => 100, :height => 95, class:"money-bag", href:"money-bag"%>
-        <ul class="when-you-sell-list">
-          <li>
-            If you've got extra space in your garbage, you can make money!
-          </li>
-          <br />
-          <li>
-            When you sell your garbage space, you and your fellow neighbours will both
-            benifit! You're helping them save money, all the while you're making money!
-            The less garbage you have come garbage day, could mean more money in your pocket!
-          </li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="buy-container">
-      <div class="when-you-buy animated">
-        <h2 class="when-you-title">When you buy!</h2>
-        <%= image_tag 'trash-bin-full.png',:width => 100, :height => 95, class:"trash-bin-full", href:"trash-bin-full"%>
-        <ul class="when-you-buy-list">
-          <li>
-            See if your neighbours have extra space in their garbage and save money!
-          </li>
-          <br />
-          <li >
-            When you buy garbage space, you and your fellow neighbours will both
-            benifit! Don't go out and buy extra bags! Save money by checking to see
-            if your neighbours have extra garbage space. If so, buy it from them and save the hassle and money!
-          </li>
-        </ul>
-      </div>
+  <div class="buy-container" id="when-you-sell">
+    <div class="when-you-buy animated fadeInRight">
+      <h2 class="when-you-title">When you buy!</h2>
+      <%= image_tag 'trash-bin-full.png',:width => 100, :height => 95, class:"trash-bin-full", href:"trash-bin-full"%>
+      <ul class="when-you-sell-list">
+        <li>
+          See if your neighbours have extra space in their garbage and save money!
+        </li>
+        <br />
+        <li >
+          When you buy garbage space, you and your fellow neighbours will both
+          benifit! Don't go out and buy extra bags! Save money by checking to see
+          if your neighbours have extra garbage space. If so, buy it from them and save the hassle and money!
+        </li>
+      </ul>
     </div>
-  </div> <!-- containter -->
+  </div>
+</div> <!-- containter -->
 
-  <div class="divider-bottom"> </div>
-  <div class="intro-form">
-    <div class="intro-form-container">
-      <div class="signup-container animated">
-        <div id="newuser">
-          <%= render 'users/form' %>
-        </div>
-      </div>
-      <div class="login-container animated">
-        <div id="login">
-          <%= render 'sessions/form' %>
-        </div>
-      </div>
+<div class="intro-form">
+  <div class="signup-container animated fadeInUp">
+    <div id="newuser">
+      <%= render 'users/form' %>
+    </div>
+  </div>
+  <div class="login-container animated fadeInUp">
+    <div id="login">
+      <%= render 'sessions/form' %>
     </div>
   </div>
 </div>
