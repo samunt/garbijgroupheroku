@@ -11,35 +11,38 @@
   <% end %>
 
 <div class="newuser">
-    <h1 class="sign-up-title">Sign Up!</h1>
+    <h1 class="sign-up-title">SIGN UP</h1>
 
-    <div class="form_field">
-      <%= f.label :first_name %><br>
-      <%= f.text_field :first_name %>
-    </div>
+    <div class="form-entry">
+      <div class="form_field">
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %>
+      </div>
 
-    <div class="form_field">
-      <%= f.label :last_name %><br>
-      <%= f.text_field :last_name %>
-    </div>
+      <div class="form_field">
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %>
+      </div>
 
-    <div class="form_field">
-      <%= f.label :email %><br>
-      <%= f.email_field :email %>
-    </div>
+      <div class="form_field">
+        <%= f.label :email %><br>
+        <%= f.email_field :email %>
+      </div>
 
-    <div class="form_field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
-    </div>
+      <div class="form_field">
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+      </div>
 
-    <div class="form_field">
-      <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation %>
-    </div>
+      <div class="form_field">
+        <%= f.label :password_confirmation %><br>
+        <%= f.password_field :password_confirmation %>
+      </div>
 
-    <div class="submit">
-      <%= f.submit %>
+      <div class="submit">
+        <%= f.submit class: "signup-btn" %>
+        <!-- <%= f.submit 'name of button here', :class => 'submit_class_name_here' %> -->
+      </div>
     </div>
 </div>
 

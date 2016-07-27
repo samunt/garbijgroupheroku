@@ -1,12 +1,12 @@
-<!--  Return an array in any case 1 or multiple elements-->
-
-<% Array(@spaces).each do |x| %>
+<% @spaces.each do |x| %>
   <% next if x.capacity == nil || x.capacity <= 0 %>
   <ul class = "all-list">
     <li><p>Address: <%= x.address %></p></li>
     <li><p>Capacity: <%= x.capacity %></p></li>
     <li><p>Garbage Day: <%= x.garbaje_day %></p></li>
+
     <!-- <button type="button" id="buy-spot">Buy the spot</button> -->
     <%= button_to "Buy Spot", new_user_space_transactions_path(@user, x), :method => :get %>
+
   </ul>
 <% end %>

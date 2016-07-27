@@ -12,9 +12,6 @@ class TransactionsController < ApplicationController
     else
       @spaces = Space.all
     end
-
-    # render layout: false
-    # @user = User.find(params[:id])
   end
 
   def show

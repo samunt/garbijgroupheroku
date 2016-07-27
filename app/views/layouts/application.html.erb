@@ -3,59 +3,55 @@
 <head>
   <title>Garbaje</title>
 
-
+  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Montserrat' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=makeMap"
+    async defer></script>
+
+
 
 </head>
 <body>
-
   <header class="nav-bar <%= "nav-homepage" if @homepage %> ">
 
     <div class="logo">
       <% if @homepage %>
         <%= link_to (image_tag 'garbij_logo.png'), root_path %>
       <% else %>
-        <%= image_tag 'garbij_logo_green.png' %>
+      <%= link_to (image_tag 'garbij_logo_green.png'), root_path %>
       <% end %>
     </div> <!--.logo -->
 
-  <div class="navlinks">
-
+    <div class="nav-links">
 
       <% if current_user %>
-
         <div class="logout">
-           <%= link_to "LOG OUT", session_path("current"), method: :delete %>
+          <%= link_to "LOG OUT", session_path("current"), class: "green", method: :delete %>
         </div>
-
-        <br />
-
         <div class="myprofile">
-          <%= link_to "My Profile", user_path(current_user) %>
+          <%= link_to "MY PROFILE", user_path(current_user), class: "green" %>
         </div>
-
-
       <% else %>
-
         <div class="signuplogin">
-           <%= link_to "SIGN UP", new_user_path %> /
-           <%= link_to "LOGIN", new_session_path%>
+          <%= link_to "SIGN UP", new_user_path, class: "green" %>
+          <%= link_to "LOGIN", new_session_path, class: "green" %>
         </div>
+      <% end %>
 
-    <% end %>
-
-  </div><!--.navlinks -->
+</div><!--.navlinks -->
 </header><!--.nav-bar -->
+
   <% if flash[:alert] %>
     <p><%= flash[:alert] %></p>
   <% end %>
@@ -63,13 +59,12 @@
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
+<main id="application_body">
+  <%= yield %>
+  <div class="push"></div>
+</main>
 
+<footer> &copy Gärbij 2016 </footer>
 
-  <main id="application_body">
-    <%= yield %>
-  </main>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=initMap"
-    async defer></script>
 </body>
 </html>

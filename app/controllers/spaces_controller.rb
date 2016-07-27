@@ -10,12 +10,10 @@ class SpacesController < ApplicationController
       @spaces = Space.all
     end
   end
-
   def new
     @user = current_user
     @space = Space.new
   end
-
   def create
     @space = Space.new(space_params)
     @spaces = Space.all
@@ -29,7 +27,6 @@ class SpacesController < ApplicationController
         format.js
       end
     end
-
     # @space.user_id = params[:user_id]
     # if @space.save
     #   redirect_to user_path(current_user) #need to go to the last space
@@ -37,7 +34,6 @@ class SpacesController < ApplicationController
     #   render :new
     # end
   end
-
   def update
     @space = Space.find(params[:id])
     # @user = User.find(params[:user_id])
@@ -55,19 +51,16 @@ class SpacesController < ApplicationController
         format.json { render json: @space.errors, status: :unprocessable_entity }
         format.js
       end
-
+      
   end
-
   def show
     @user = User.find(params[:user_id])
     @space = @user.spaces.find(params[:id])
   end
-
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
   end
-
   private
   def space_params
     params.require(:space).permit(:capacity, :address, :garbaje_day, :user_id)

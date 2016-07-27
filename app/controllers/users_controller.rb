@@ -18,9 +18,9 @@ before_action :require_login, only: [:edit, :update]
       session[:user_id] = @user.id
       UserMailer.welcome_email(@user).deliver_later
       self.current_user = @user
-      redirect_to user_path(@user), alert: 'Signed up'
+      redirect_to user_path(@user), alert: 'SIGNED UP!'
     else
-      flash[:alert] = "Sign up Failed!"
+      flash[:alert] = "SIGN UP FAILED!"
       render :new
     end
   end
@@ -34,10 +34,10 @@ before_action :require_login, only: [:edit, :update]
     require_login
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:notice] = "User was successfully updated."
+      flash[:notice] = "USER WAS SUCCESSFULLY UPDATED!"
       redirect_to user_path(@user)
     else
-      flash[:alert] = "User not successfully updated."
+      flash[:alert] = "USER NOT SUCCESSFULLY UPDATED"
       render :edit
     end
   end
