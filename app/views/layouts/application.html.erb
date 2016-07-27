@@ -16,7 +16,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_maps_api_key'] %>&callback=makeMap"
     async defer></script>
 
 
@@ -52,13 +52,18 @@
 </div><!--.navlinks -->
 </header><!--.nav-bar -->
 
-  <% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
-  <% end %>
+  <!-- <div class="alert"> -->
+    <% if flash[:alert] %>
+      <p><%= flash[:alert] %></p>
+    <% end %>
+  <!-- </div> -->
 
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
+  <!-- <div class="notice"> -->
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  <!-- </div> -->
+
 <main id="application_body">
   <%= yield %>
   <div class="push"></div>

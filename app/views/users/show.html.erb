@@ -5,8 +5,7 @@
     </h3>
 
     <!-- eventually make these links an AJAX call -->
-    <%= link_to "Edit Profile", edit_user_path %> |
-    <%= link_to "Add Garbage Bin", new_user_space_path(@user) %>
+    <%= link_to "Edit Profile", edit_user_path %>
 
 
 <!--  AJAX request for Add New Bin -->
@@ -28,7 +27,7 @@
     <div class="row" id="container_posts">
       <!-- <h3>Your Existing Garbage Bins</h3> -->
       <% @user.spaces.each do |space| %>
-      <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
+      <%= link_to "Sell Space(s)", user_space_path(@user, space), class: 'sellspacebutton' %> |
       <%= link_to "Buy Space(s)",  transactions_path(@user, space) %><br>
         <%= render space %>
 
@@ -50,11 +49,11 @@
             <div class="modal-body">
               <div class="field">
                 <%= f.label :address %><br>
-                <%= f.text_area :address, class: "form-control" %>
+                <%= f.text_area :address, class: "form-control", placeholder: "e.g. 1 Bay St., Toronto" %>
               </div>
               <div class="field">
                 <%= f.label :garbage_day %><br>
-                <%= f.select(:garbaje_day, ['Monday', 'Tuesday'], { :class => 'form-control'}) %>
+                <%= f.select(:garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], { :class => 'form-control'}) %>
               </div>
 
             </div>
@@ -69,15 +68,32 @@
       <% end %>
     <!-- Modal -->
 
+   <!-- this is where we are going to AJAX in the sell space from usr/id/spaces/id -->
+
+
 </div>
 
+<div id="dropsellspacehere">
 
+</div>
 
-
-<!-- <h3>Your Recent Transaction History</h3>
-<strong>Garbage Spaces Sold</strong>
+<h3>Your Recent Transaction History</h3>
+<strong>Garbage Spaces Sold</strong><br>
 <ul id='sold-spaces'>
-  <%#= @spaces.each do |space| %>
-    <%#= space.buy_transactions.each do |buy_transactions| %>
-      <li>Address: <%#=buy_transaction.quantity %></li>
-</ul> -->
+  <% @sell_spaces.each do |space| %>
+    <li>Address: <%= space.address %></li>
+    <% space.sell_transactions.each do |transaction| %>
+      <li>Quantity: <%=transaction.quantity%></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<strong>Garbage Spaces Bought</strong><br>
+<ul id='bought-spaces'>
+  <% @buy_spaces.each do |space| %>
+    <li>Address: <%= space.address %></li>
+    <% space.buy_transactions.each do |transaction| %>
+      <li>Quantity: <%=transaction.quantity%></li>
+    <% end %>
+  <% end %>
+</ul>

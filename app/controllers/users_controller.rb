@@ -6,6 +6,11 @@ before_action :require_login, only: [:edit, :update]
     require_login
     @user = User.find(params[:id])
     @space = Space.new
+    @buy_spaces = @user.buy_spaces
+    @sell_spaces = @user.sell_spaces
+
+
+
   end
 
   def new
