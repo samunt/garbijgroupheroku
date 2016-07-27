@@ -30,8 +30,10 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
-
     if @transaction.save
+      @space = Space.find(params[:space_id])
+      @space.capacity -= @transaction.quantity
+      @space.update_attributes(capacity: @space.capacity )
       redirect_to root_path
     else
       render :new

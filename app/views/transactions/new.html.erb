@@ -2,11 +2,22 @@
 <br />
 <br />
   <h4>Hey <%= @user.first_name%>,</h4> <br />
-  you choose 
+  you choose
   <%= @spaces.each do |space| %>
     <%= space.capacity %> space(s)
     at this address: <%= space.address %> <br>
     Date: <% time= Time.now%><%= time.to_formatted_s(:long) %> <br>
   <% end %>
   <br><br>
+  <h4>Transaction Action</h4>
+  <%= form_for [@space] do |f| %>
+    <div class="form_field">
+      <%= f.hidden_field :space_id, :value => @space %>
+    </div>
+      <div class="submit">
+        <%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+
   <%= link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), :controller => 'paypal_express', :action => 'checkout' %>
