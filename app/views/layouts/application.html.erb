@@ -52,15 +52,21 @@
 </div><!--.navlinks -->
 </header><!--.nav-bar -->
 
-  <% if flash[:alert] %>
-    <p><%= flash[:alert] %></p>
-  <% end %>
+  <!-- <div class="alert"> -->
+    <% if flash[:alert] %>
+      <p><%= flash[:alert] %></p>
+    <% end %>
+  <!-- </div> -->
 
-  <% if flash[:notice] %>
-    <p><%= flash[:notice] %></p>
-  <% end %>
+  <!-- <div class="notice"> -->
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  <!-- </div> -->
+
 <main id="application_body">
   <%= yield %>
+  <%= console %>
   <div class="push"></div>
 </main>
 
