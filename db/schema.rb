@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726234335) do
+ActiveRecord::Schema.define(version: 20160727204448) do
 
   create_table "Orders", force: :cascade do |t|
     t.integer  "transaction_id"
@@ -53,10 +53,18 @@ ActiveRecord::Schema.define(version: 20160726234335) do
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "phone"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "salt"
     t.string   "crypted_password"
+    t.integer  "credit_card_number"
+    t.integer  "credit_card_month"
+    t.integer  "credit_card_year"
+    t.integer  "credit_card_verification_value"
+    t.string   "billing_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
 end
