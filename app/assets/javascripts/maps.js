@@ -1,6 +1,4 @@
 
-
-
 function makeMap(){
   console.log("new function");
   var map = new google.maps.Map(document.getElementById('map'), {

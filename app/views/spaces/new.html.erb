@@ -26,11 +26,11 @@
             <div class="modal-body">
               <div class="field">
                 <%= f.label :address %><br>
-                <%= f.text_area :address, class: "form-control" %>
+                <%= f.text_area :address, placeholder: "e.g. 1 Bay St., Toronto" , class: "form-control" %>
               </div>
               <div class="field">
                 <%= f.label :garbage_day %><br>
-                <%= f.select(:garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday','Sunday'], { :class => 'form-control'}) %>
+                <%= f.select(:garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], { :class => 'form-control'}) %>
               </div>
             </div>
 
