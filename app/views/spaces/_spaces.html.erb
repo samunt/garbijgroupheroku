@@ -6,7 +6,7 @@
     <li><p>Garbage Day: <%= x.garbaje_day %></p></li>
 
     <!-- <button type="button" id="buy-spot">Buy the spot</button> -->
-    <%= button_to "Buy Spot", new_user_space_transactions_path(@user, x), :method => :get %>
-
+    <%= button_to "Buy Spot", new_user_space_transactions_path(@user, x), :method => :get, :params => {quantity: @quantity} %>
+    Quantity: <%= @quantity %>
   </ul>
 <% end %>

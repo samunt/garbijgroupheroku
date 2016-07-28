@@ -4,8 +4,10 @@ class SpacesController < ApplicationController
     if request.xhr?
       @spaces = Space.where("capacity >=? ", params[:quantity])
       @spaces.near([params[:latitude], params[:logitude]])
+      @quantity = params[:quantity]
       puts params
       render partial: 'spaces'
+
     else
       @spaces = Space.all
     end
@@ -13,6 +15,7 @@ class SpacesController < ApplicationController
   def new
     @user = current_user
     @space = Space.new
+    @quantity = params[:quantity]
   end
   def create
     @space = Space.new(space_params)
@@ -51,7 +54,7 @@ class SpacesController < ApplicationController
         format.json { render json: @space.errors, status: :unprocessable_entity }
         format.js
       end
-      
+
   end
   def show
     @user = User.find(params[:user_id])
