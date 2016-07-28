@@ -1,16 +1,19 @@
-<h1>Buy Spaces</h1>
-
-<div id='map'></div>
+<div id='map' class="map animated fadeInDown"></div>
 
 <%= javascript_tag do %>
   window.spaces = <%=raw @spaces.to_json %>;
 <% end %>
+</br>
+
+<div class="map-form">
 
 <%= form_tag do %>
   <%= label_tag 'Quantity'%>
   <%= number_field_tag 'quantity' %>
-  <button type="button" id="find-nearby">Find Available Space Near Me!</button>
+  <button type="button" class="btn-front" id="find-nearby" >Find Available Space Near Me!</button>
 <% end %>
+
+</div>
 
 
 <div class="geolocation-list">
