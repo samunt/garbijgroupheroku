@@ -35,4 +35,22 @@ function check_if_in_view() {
 $window.on('scroll', check_if_in_view);
 $window.trigger('scroll');
 
+$('.btn-front').on('click', function (){
+
+     $('.placeholder-info').hide();
+
+     $('html, body').animate({
+       scrollTop: $('.intro-form').offset().top }, 1000);
+
+     });
+
+     $('downward-scroll').on('click', function (){
+
+          $('.placeholder-info').hide();
+
+          $('html, body').animate({
+            scrollTop: $('.container').offset().top }, 1000);
+
+          });
+
 });
