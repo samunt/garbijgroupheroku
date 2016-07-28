@@ -46,7 +46,7 @@ function makeMap(){
     })(marker, i));
 
     // Automatically center the map fitting all markers on the screen
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
 
     }
 
