@@ -3,12 +3,9 @@
   <br />
   <br />
   <h4>Hey <%= @user.first_name%>,</h4> <br />
-  you choose
-  <%= @spaces.each do |space| %>
-    <%= space.capacity %> space(s)
-    at this address: <%= space.address %> <br>
-    Date: <% time= Time.now%><%= time.to_formatted_s(:long) %> <br>
-  <% end %>
+  you choose <br>
+  Address: <%= @space.address %> <br>
+  Quantity: <%= @space.capacity%> <br>
   <br><br>
   <h4>Transaction Action</h4>
   <%= form_for @transaction do |f| %>

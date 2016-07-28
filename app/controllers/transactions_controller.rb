@@ -27,29 +27,33 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new(transaction_params)
+    @user = current_user
     if @transaction.save
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
-                :number             => "4242424242424242",
-                :month              => "12",
-                :year               => "2020",
-                :verification_value => "411")
+            :number             => '4242424242424242',
+            :month              => @user.credit_card_month,
+            :year               => @user.credit_card_year,
+            :verification_value => @user.credit_card_verification_value)
 
         purchaseOptions = {:billing_address => {
-            :name     => "Customer Name",
-            :address1 => "Customer Address Line 1",
-            :city     => "Customer City",
-            :state    => "Customer State",
-            :zip      => "Customer Zip Code"
+            :name     => "hkhkh",
+            :address1 => "njfkdjsfk",
+            :city     => "@user.city",
+            :state    => "@user.state",
+            :zip      => "@user.zip"
     }}
 
-    response = EXPRESS_GATEWAY.purchase((17.50 * 100).to_i, paymentInfo, purchaseOptions)
+    response = EXPRESS_GATEWAY.purchase((122 * 2).to_i, paymentInfo, purchaseOptions)
 
     if response.success? then
       logger.debug "charge successful"
       @space = Space.find(transaction_params[:sell_space_id])
+      @transaction.quantity = @space.capacity
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
       redirect_to root_path
+    else
+      render_to root_path
     end
     else
       render :new

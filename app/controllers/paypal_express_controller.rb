@@ -2,7 +2,7 @@ class PaypalExpressController < ApplicationController
   before_filter :assigns_gateway
 
     include ActiveMerchant::Billing
-    include PaypalExpressHelper
+    # include PaypalExpressHelper
 
     def checkout
       total_as_cents, setup_purchase_params = get_setup_purchase_params @cart, request
@@ -18,7 +18,5 @@ class PaypalExpressController < ApplicationController
           :signature => PaypalLogin.signature,
         )
       end
-
-
 
 end
