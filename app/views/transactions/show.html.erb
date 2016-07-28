@@ -1,1 +1,13 @@
-<h1>Buy Space</h1>
+<h1>Receipt</h1>
+
+<h3>Payment Summary:</h3><br>
+
+<ul id="pdf-receipt">
+  <li>Quantity of Spaces: <%= @transaction.quantity %></li>
+  <li>Price per Space: $2.00</li>
+  <li>Total Cost: $<%= @transaction.quantity * 2 %></li>
+  <strong>You saved $<%= @transaction.quantity * 3  %> on your purchase!</strong>
+</ul>
+
+<p>Love,</p>
+<p>The Gärbij Team</p>
