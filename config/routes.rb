@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
+  get "paypal_express/checkout"
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :spaces
+  resources :orders, only: [:new, :create]
+  get "express_checkout" => 'orders#express_checkout', as: :express_checkout
   resources :transactions
   resources :users do
     resources :spaces do
        resource :transactions
     end
   end
+
 
   root 'welcome#index'
 

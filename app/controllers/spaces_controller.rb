@@ -51,6 +51,7 @@ class SpacesController < ApplicationController
         format.json { render json: @space.errors, status: :unprocessable_entity }
         format.js
       end
+      
   end
   def show
     @user = User.find(params[:user_id])

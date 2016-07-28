@@ -8,9 +8,6 @@ before_action :require_login, only: [:edit, :update]
     @space = Space.new
     @buy_spaces = @user.buy_spaces
     @sell_spaces = @user.sell_spaces
-
-
-
   end
 
   def new
@@ -49,7 +46,7 @@ before_action :require_login, only: [:edit, :update]
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :credit_card_number, :credit_card_month, :credit_card_year, :credit_card_verification_value, :billing_address, :city, :state, :zip)
   end
 
 end

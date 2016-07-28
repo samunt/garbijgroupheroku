@@ -38,6 +38,9 @@ gem 'validates_email_format_of'
 
 
 gem 'figaro'
+
+gem 'activemerchant'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -9,6 +9,20 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # Setup ActiveMerchant
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+
+     paypal_options = {
+      :login => "garbagebitmaker-facilitator_api1.gmail.com",
+      :password => "7VFT7CJSYDR75SYE",
+      :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AlBPsr46eZaQjuTqIS7fRb7YZ0GB"
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::StripeGateway.new(:login => 'sk_test_PewmULzxhxbepHBu1nQw6l6D')
+
+    #  = ActiveMerchant::Billing::StripeExpressGateway.new(paypal_options)
+  end
+
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

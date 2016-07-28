@@ -10,6 +10,16 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  # configure ActiveMerchant
+  config.after_initialize do
+  ActiveMerchant::Billing::Base.mode = :production
+  ::GATEWAY = ActiveMerchant::Billing::PaypalGateway.new(
+    :login => "seller_1229899173_biz_api1.railscasts.com",
+    :password => "FXWU58S7KXFC6HBE",
+    :signature => "AGjv6SW.mTiKxtkm6L9DcSUCUgePAUDQ3L-kTdszkPG8mRfjaRZDYtSu"
+  )
+  end
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true

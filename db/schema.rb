@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721165940) do
+ActiveRecord::Schema.define(version: 20160727235643) do
+
+  create_table "Orders", force: :cascade do |t|
+    t.integer  "transaction_id"
+    t.string   "ip"
+    t.string   "express_token"
+    t.string   "express_payer_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "spaces", force: :cascade do |t|
     t.integer  "capacity"
@@ -30,9 +39,11 @@ ActiveRecord::Schema.define(version: 20160721165940) do
     t.integer  "sell_space_id"
     t.float    "total_fee"
     t.date     "transaction_date"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "quantity"
+    t.string   "status"
+    t.float    "total_amount_cents"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,10 +53,18 @@ ActiveRecord::Schema.define(version: 20160721165940) do
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "phone"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "salt"
     t.string   "crypted_password"
+    t.string   "credit_card_number"
+    t.string   "credit_card_month"
+    t.string   "credit_card_year"
+    t.string   "credit_card_verification_value"
+    t.string   "billing_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
   end
 
 end
