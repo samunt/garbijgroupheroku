@@ -36,11 +36,16 @@ gem 'validates_email_format_of'
 # gem 'carrierwave'
 # gem 'mini_magick'
 
-
+#Store Google Maps API key here
 gem 'figaro'
 
 gem 'activemerchant'
 
+#converts HTML to PDF
+gem 'wicked_pdf', '~> 1.0', '>= 1.0.6'
+
+#wicked_pdf if wrapper for the binary below
+gem 'wkhtmltopdf-binary'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
