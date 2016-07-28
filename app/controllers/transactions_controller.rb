@@ -35,11 +35,11 @@ class TransactionsController < ApplicationController
     if @transaction.save
 
         #sends email containing html in transactions show view and PDF to buy_user
-        TransactionMailer.receipt_email(@user).deliver_later
+        # TransactionMailer.receipt_email(@user).deliver_later
 
         # payment info of user entered for activemerchant
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
-            :number             => "4242424242424242",
+            :number             => @user.credit_card_number,
             :month              => @user.credit_card_month,
             :year               => @user.credit_card_year,
             :verification_value => @user.credit_card_verification_value)
@@ -65,12 +65,12 @@ class TransactionsController < ApplicationController
 
       flash[:notice] = "Transaction was successfully created! View receipt in your email. "
       #goes to transactions show view and converts HTML to PDF
-      pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+      # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
       # saves PDF to tmp file, which is git ignored
-      tmp_path = Rails.root.join('tmp','receipt.pdf')
-      File.open(tmp_path, 'wb') do |file|
-        file << pdf
-      end
+      # tmp_path = Rails.root.join('tmp','receipt.pdf')
+      # File.open(tmp_path, 'wb') do |file|
+      #   file << pdf
+      # end
 
     else
       flash[:alert] = "Whoops, check your payment credentials and try again!"

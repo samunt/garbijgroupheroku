@@ -5,15 +5,8 @@
   <h4>Hey <%= @user.first_name%>,</h4> <br />
   you choose <br>
   Address: <%= @space.address %> <br>
-<<<<<<< HEAD
-  Quantity: <%= @quantity.inspect%> <br>
-  <br><br>
-  <h4>Transaction Action</h4>
-  <!-- Pass info about quantity and space -->
-=======
   Quantity: <%= @quantity %> <br>
   <br>
->>>>>>> master
   <%= form_for @transaction do |f| %>
     <div class="form_field">
       <%= f.hidden_field :sell_space_id, :value => @space.id %>
