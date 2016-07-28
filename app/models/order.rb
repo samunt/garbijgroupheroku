@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  belongs_to :transaction
+  belongs_to :owner, foreign_key: "transaction_id", class_name: "Transaction"
 
  def purchase
    response = EXPRESS_GATEWAY.purchase(order.total_amount_cents, express_purchase_options)
