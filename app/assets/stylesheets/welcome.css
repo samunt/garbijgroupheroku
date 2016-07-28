@@ -43,7 +43,7 @@
 }
 
 
-.btn {
+.btn-front {
   -webkit-border-radius: 6;
   -moz-border-radius: 6;
   border-radius: 6px;
@@ -55,9 +55,10 @@
   padding: 9px 32px 9px 32px;
   text-decoration: none;
   text-align: center;
+  border-style: none;
 }
 
-.btn:hover {
+.btn-front:hover {
   background: #72a593;
   text-decoration: none;
 }
@@ -80,17 +81,22 @@
   background-color: #EDEDED;
   width: 100%;
   height: 30px;
-  margin-top: 100px;
+  margin-top: 100px
 }
 
 .introduction {
-  /*background-color: white;*/
+  background: linear-gradient(to bottom right, #F7F7F7, white);
   color: #0F7651;
   width: 100%;
-  height: 200px;
+  height: 180px;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-bottom: 80px;
+  border-top: 5px;
+  border-bottom: 5px;
+  border-left: 0px;
+  padding-top: 5px;
+
   /*z-index: 10;*/
   /*position: absolute;*/
 }
@@ -111,12 +117,13 @@
   /*background-color: #A6C2B8;*/
   width: 500px;
   height: 500px;
-  float: right;
+  float: left;
   border-style: inset;
   border-width: 8px;
   border-color: #9CB9AE;
   border-radius: 15px;
   display: inline-block;
+  margin-left: 10px;
   /*box-shadow: 10px 10px 5px #888888;*/
 
 }
@@ -144,12 +151,13 @@
   /*background-color: #A6C2B8;*/
   width: 500px;
   height: 500px;
-  float: left;
+  float: right;
   border-style: outset;
   border-width: 8px;
   border-color: #9CB9AE;
   border-radius: 15px;
   display: inline-block;
+  margin-right: 10px;
   /*box-shadow: 10px 10px 5px #888888;*/
 
 }
@@ -164,6 +172,12 @@
 
 }
 
+.sell-container, .buy-container {
+  width: 49.5%;
+  display: inline-block;
+}
+
+
 .money-bag {
   margin-bottom: 25px;
   margin-top: 25px;
@@ -175,10 +189,10 @@
 }
 
 .container {
-  width: 71%;
+  width: 100%;
   overflow: hidden;
   margin: 0 auto;
-  position: relative;
+  /*position: relative;*/
 
 }
 
@@ -200,7 +214,7 @@
 .intro-form {
   background: linear-gradient(to bottom right, #03261A, #1E8963);
   /*margin-top: 100px;*/
-  height: 680px;
+  height: 700px;
   width: 100%;
   padding-top: 100px;
 }
