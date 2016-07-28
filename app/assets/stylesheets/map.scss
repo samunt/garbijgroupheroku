@@ -1,6 +1,39 @@
-#map {
-  height: 500px;
-  margin-top: 100px;
+@media screen and (min-width: 0px) {
+  #map {
+    height: 500px;
+    margin-top: 100px;
+    width: 100%
+  }
+  .map-form {
+    position: relative;
+
+  }
+
+  .geolocation-list {
+    position: relative;
+    left: 80px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+    #map {
+      height: 500px;
+      margin-top: 100px;
+      width: 40%;
+    }
+
+    .map-form {
+      position: absolute;
+      left: 50%;
+      bottom: 70%;
+    }
+
+    .geolocation-list {
+      position: absolute;
+      left: 55%;
+      bottom: 40%;
+    }
 }
 
 .map-form {
