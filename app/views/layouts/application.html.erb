@@ -3,7 +3,7 @@
 <head>
   <title>Garbaje</title>
 
-  <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Montserrat' %>
+  <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -23,7 +23,7 @@
 
 </head>
 <body>
-  <header class="nav-bar <%= "nav-homepage" if @homepage %> ">
+  <header class="nav-bar <%= 'nav-homepage' if @homepage %> ">
 
     <div class="logo">
       <% if @homepage %>
@@ -69,7 +69,7 @@
   <div class="push"></div>
 </main>
 
-<footer> &copy Gärbij 2016 </footer>
+<footer> &copy; Gärbij 2016 </footer>
 
 </body>
 </html>

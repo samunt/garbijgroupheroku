@@ -36,9 +36,9 @@ gem 'validates_email_format_of'
 # gem 'carrierwave'
 # gem 'mini_magick'
 
-
-gem 'figaro'
-
+#
+ gem 'figaro'
+#
 gem 'activemerchant'
 
 # Use ActiveModel has_secure_password
