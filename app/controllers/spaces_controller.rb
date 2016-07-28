@@ -38,6 +38,7 @@ class SpacesController < ApplicationController
     # end
   end
   def update
+
     @space = Space.find(params[:id])
     # @user = User.find(params[:user_id])
     # update capacity user
@@ -59,6 +60,7 @@ class SpacesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @space = @user.spaces.find(params[:id])
+    render layout: false
   end
   def destroy
     @space = Space.find(params[:id])

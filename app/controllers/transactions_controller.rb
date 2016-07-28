@@ -13,7 +13,7 @@ class TransactionsController < ApplicationController
     #     # @params = params
     else
       @spaces = Space.all
-     end
+    end
   end
 
   def show
