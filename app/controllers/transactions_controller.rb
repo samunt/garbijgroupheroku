@@ -5,15 +5,15 @@ class TransactionsController < ApplicationController
     # logic for viewing nearby spaces falls under spaces controller because spaces partial is being rendered
     @transactions = Transaction.all
 
-    # if request.xhr?
-    #     # @spaces = Space.where("capacity >=? ", params[:quantity])
-    #     # @spaces.near([params[:latitude], params[:logitude]])
-    #     # @quantity = params[:quantity]
-    #     # @spaces = Space.all
-    #     # @params = params
-    # else
-    #   @spaces = Space.all
-    # end
+    if request.xhr?
+        @spaces = Space.where("capacity >=? ", params[:quantity])
+        @spaces.near([params[:latitude], params[:logitude]])
+        @quantity = params[:quantity]
+        @spaces = Space.all
+        @params = params
+    else
+      @spaces = Space.all
+    end
   end
 
   def show
