@@ -1,41 +1,44 @@
 
-<div class="edit-profile">
-  <div class="edit-container">
-    <h1 class="edit-user-title">Edit User Info</h1>
+<div class="edit-background">
+  <div class="edit-profile animated fadeInUp">
+    <div class="edit-container">
+      <h1 class="edit-user-title">Edit User Info</h1>
 
-    <%= form_for @user do |f| %>
+      <%= form_for @user do |f| %>
 
-    <div class="form_field">
-      <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <div class="form_field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+
+      <div class="form_field">
+       <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+
+      <div class="form_field">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+      </br>
+      <p><strong>Want to change your password? Do it here.</strong></p>
+      <div class="form_field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+
+      <div class="form_field">
+        <%= f.label "Re-type password" %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+
+    </br>
+
+      <div class="submit">
+        <%= f.submit class: "btn-front" %>
+      </div>
+
     </div>
-
-    <div class="form_field">
-     <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
-    </div>
-
-    <div class="form_field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-    </div>
-
-    <p>Want to change your password? Do it here.</p>
-
-    <div class="form_field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-    </div>
-
-    <div class="form_field">
-      <%= f.label "Re-write password" %>
-      <%= f.password_field :password_confirmation %>
-    </div>
-
-    <div class="submit">
-      <%= f.submit %>
-    </div>
-
+    <% end %>
   </div>
-  <% end %>
 </div>
