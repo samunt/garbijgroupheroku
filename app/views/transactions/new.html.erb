@@ -6,8 +6,7 @@
   you choose <br>
   Address: <%= @space.address %> <br>
   Quantity: <%= @quantity %> <br>
-  <br><br>
-  <h4>Transaction Action</h4>
+  <br>
   <%= form_for @transaction do |f| %>
     <div class="form_field">
       <%= f.hidden_field :sell_space_id, :value => @space.id %>
