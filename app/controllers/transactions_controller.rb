@@ -34,6 +34,16 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = current_user
     if @transaction.save
+
+        pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+
+        # then save to a file
+        tmp_path = Rails.root.join('tmp','receipt.pdf')
+        File.open(tmp_path, 'wb') do |file|
+          file << pdf
+        end
+
+        TransactionMailer.receipt_email(@user).deliver_later
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
             :number             => '4242424242424242',
             :month              => @user.credit_card_month,
