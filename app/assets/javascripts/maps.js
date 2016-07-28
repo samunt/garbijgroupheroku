@@ -2,8 +2,8 @@
 function makeMap(){
   console.log("new function");
   var map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 43.6532, lng: 79.3832},
-  zoom: 4
+  center: {lat: 43.7184039, lng: -79.518143},
+  zoom: 10
   });
 
 
@@ -46,7 +46,7 @@ function makeMap(){
     })(marker, i));
 
     // Automatically center the map fitting all markers on the screen
-    // map.fitBounds(bounds);
+    map.fitBounds(bounds);
 
     }
 

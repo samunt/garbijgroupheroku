@@ -5,9 +5,10 @@ class TransactionsController < ApplicationController
     @transactions = Transaction.all
 
     if request.xhr?
-        @spaces = Space.where("capacity >=? ", params[:quantity])
-        @spaces.near([params[:latitude], params[:logitude]])
-        @quantity = params[:quantity]
+        # @spaces = Space.where("capacity >=? ", params[:quantity])
+        # @spaces.near([params[:latitude], params[:logitude]])
+        # @quantity = params[:quantity]
+        puts "****************" + @quantity
         # @spaces = Space.all
         # @params = params
     else
@@ -25,6 +26,8 @@ class TransactionsController < ApplicationController
     @user = current_user
     @spaces = Space.all
     @space = Space.find(params[:space_id])
+    @quantity = params[:quantity]
+    puts @quantity
   end
 
   def create
