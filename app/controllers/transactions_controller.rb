@@ -33,23 +33,13 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = current_user
     if @transaction.save
-        flash[:notice] = "Transaction was successfully created! View receipt in your email. "
-
-        #goes to transactions show view and converts HTML to PDF
-        pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-
-        # saves PDF to tmp file, which is git ignored
-        tmp_path = Rails.root.join('tmp','receipt.pdf')
-        File.open(tmp_path, 'wb') do |file|
-          file << pdf
-        end
 
         #sends email containing html in transactions show view and PDF to buy_user
         TransactionMailer.receipt_email(@user).deliver_later
 
         # payment info of user entered for activemerchant
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
-            :number             => @user.credit_card_number,
+            :number             => "4242424242424242",
             :month              => @user.credit_card_month,
             :year               => @user.credit_card_year,
             :verification_value => @user.credit_card_verification_value)
@@ -71,7 +61,17 @@ class TransactionsController < ApplicationController
       @transaction.quantity = @space.capacity
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
-      redirect_to user_path
+      redirect_to user_path(@user)
+
+      flash[:notice] = "Transaction was successfully created! View receipt in your email. "
+      #goes to transactions show view and converts HTML to PDF
+      pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+      # saves PDF to tmp file, which is git ignored
+      tmp_path = Rails.root.join('tmp','receipt.pdf')
+      File.open(tmp_path, 'wb') do |file|
+        file << pdf
+      end
+
     else
       flash[:alert] = "Whoops, check your payment credentials and try again!"
       redirect_to edit_user_path(current_user)
