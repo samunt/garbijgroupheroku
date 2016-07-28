@@ -44,7 +44,7 @@ $('.btn-front').on('click', function (){
 
      });
 
-     $('downward-arrow').on('click', function (){
+     $('downward-scroll').on('click', function (){
 
           $('.placeholder-info').hide();
 

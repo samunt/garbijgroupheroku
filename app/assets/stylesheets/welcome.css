@@ -34,6 +34,7 @@
   color: white;
   padding-top: 190px;
   margin: 0;
+  margin-bottom: 7px;
 }
 
 .welcome-subtitle {
@@ -87,9 +88,7 @@
 }
 
 .introduction {
-  background-image: url("city-hall.jpg");
-  background-size: cover;
-  /*background: linear-gradient(to bottom right, #F7F7F7, white);*/
+  background: linear-gradient(to bottom right, #F7F7F7, white);
   color: #0F7651;
   width: 100%;
   height: 180px;
@@ -132,6 +131,10 @@
   /*box-shadow: 10px 10px 5px #888888;*/
 
 }
+
+/*.downward-scroll {
+
+}*/
 
 .when-you-buy-list {
   padding: 0;
