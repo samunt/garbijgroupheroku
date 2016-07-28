@@ -2,18 +2,18 @@ class TransactionsController < ApplicationController
 
   def index
     #@spaces = Space.find(params[:sell_space_id])
+    # logic for viewing nearby spaces falls under spaces controller because spaces partial is being rendered
     @transactions = Transaction.all
 
-    if request.xhr?
-        # @spaces = Space.where("capacity >=? ", params[:quantity])
-        # @spaces.near([params[:latitude], params[:logitude]])
-        # @quantity = params[:quantity]
-        puts "****************" + @quantity
-        # @spaces = Space.all
-        # @params = params
-    else
-      @spaces = Space.all
-    end
+    # if request.xhr?
+    #     # @spaces = Space.where("capacity >=? ", params[:quantity])
+    #     # @spaces.near([params[:latitude], params[:logitude]])
+    #     # @quantity = params[:quantity]
+    #     # @spaces = Space.all
+    #     # @params = params
+    # else
+    #   @spaces = Space.all
+    # end
   end
 
   def show
@@ -22,7 +22,6 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
-    puts "!!!!!!!!!!!!!!!!!!!!!!!!!"
     @user = current_user
     @spaces = Space.all
     @space = Space.find(params[:space_id])
@@ -34,12 +33,18 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
     @user = current_user
     if @transaction.save
+
+        #sends email containing html in transactions show view and PDF to buy_user
+        TransactionMailer.receipt_email(@user).deliver_later
+
+        # payment info of user entered for activemerchant
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
-            :number             => '4242424242424242',
+            :number             => "4242424242424242",
             :month              => @user.credit_card_month,
             :year               => @user.credit_card_year,
             :verification_value => @user.credit_card_verification_value)
 
+        #is this necessary?
         purchaseOptions = {:billing_address => {
             :name     => "hkhkh",
             :address1 => "njfkdjsfk",
@@ -56,14 +61,27 @@ class TransactionsController < ApplicationController
       @transaction.quantity = @space.capacity
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
-      redirect_to root_path
+      redirect_to user_path(@user)
+
+      flash[:notice] = "Transaction was successfully created! View receipt in your email. "
+      #goes to transactions show view and converts HTML to PDF
+      pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+      # saves PDF to tmp file, which is git ignored
+      tmp_path = Rails.root.join('tmp','receipt.pdf')
+      File.open(tmp_path, 'wb') do |file|
+        file << pdf
+      end
+
     else
-      render_to root_path
+      flash[:alert] = "Whoops, check your payment credentials and try again!"
+      redirect_to edit_user_path(current_user)
     end
-    else
-      render :new
-    end
+    # else
+    #   render :new
+    # end
   end
+end
+
 
   def update
   end

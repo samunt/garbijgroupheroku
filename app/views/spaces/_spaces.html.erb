@@ -5,9 +5,9 @@
     <li><p>Address: <%= x.address %></p></li>
     <li><p>Capacity: <%= x.capacity %></p></li>
     <li><p>Garbage Day: <%= x.garbaje_day %></p></li>
-
+    <li><p>Quantity: <%= @quantity %></p></li>
     <!-- <button type="button" id="buy-spot">Buy the spot</button> -->
-    <%= button_to "Buy Spot", new_user_space_transactions_path(@user, x), :method => :get, :params => {quantity: @quantity} %>
-    Quantity: <%= @quantity %>
+    <%= button_to "Throw Garbage Here", new_user_space_transactions_path(@user, x), :method => :get, :params => {quantity: @quantity} %>
+
   </ul>
 <% end %>
