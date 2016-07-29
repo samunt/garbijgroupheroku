@@ -113,10 +113,11 @@
 }
 
 .intro-right {
-  /*background: linear-gradient(to bottom right, #F7F7F7, white);*/
+  border-radius: 15px;
+  background: linear-gradient(to bottom right, #F7F7F7, white);
   width: 50%;
   float: right;
-  padding-left: 50px;
+  padding-left: 60px;
   /*position: relative;
   top: 50%;
   transform: translateY(-50%);*/
@@ -140,7 +141,7 @@
 }
 
 .intro-title {
-  color: #0F7651;
+  color: #129868;
   font-family: "Avenir next", Arial, sans-serif;
   font-weight: normal;
   font-size: 20px;
