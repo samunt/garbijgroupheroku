@@ -48,8 +48,9 @@
 
 
 .map-trans {
-  height: 600px;
+  height: 100%;
   padding-top: 45px;
+  padding-bottom: 40px;
   margin: 0 auto;
   // background-color: red;
   margin-top: 100px;
@@ -57,6 +58,7 @@
   border-top: 15px solid #E5E5E5;
   border-bottom: 15px solid #E5E5E5;
   overflow: auto;
+
   // min-height: 600px;
 }
 
@@ -81,17 +83,16 @@
 
 .geolocation-list {
   width: 100%;
-  background-color: #E5E5E5;
+  max-width: 350px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
   font-family: "Avenir next", Helvetica, sans-serif;
    font-weight: lighter;
-
-   //
-  //  padding-bottom: 35px;
-  //  padding-top: 20px;
-  //  line-height: 20px;
    margin-top: 15px;
-   padding-left: 20px;
-   padding-top: 20px
+   padding-left: 30px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   margin-left: 20px;
 
 }
 
@@ -111,5 +112,28 @@
   width: 50%;
   float: right;
   margin-bottom: 20px;
+}
 
+.all-list {
+  list-style: none;
+}
+
+.map-trans-btn {
+  border: none;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  background: #0C6847;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.map-trans-btn:hover {
+  background: #4E8D77;
+  text-decoration: none;
+  transition: 0.5s ease;
 }
