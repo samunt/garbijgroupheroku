@@ -93,29 +93,67 @@
   margin-top: 70px
 }
 
-.introduction {
-  background: linear-gradient(to bottom right, #F7F7F7, white);
-  color: #0F7651;
+.intro-container {
   width: 100%;
-  height: 180px;
-  text-align: center;
-  margin-top: 30px;
+  height: 293px;
+  /*text-align: center;*/
+  margin-top: 50px;
   margin-bottom: 80px;
   border-top: 5px;
   border-bottom: 5px;
   border-left: 0px;
   padding-top: 5px;
-
-  /*z-index: 10;*/
-  /*position: absolute;*/
 }
 
+.intro-left {
+  text-align: center;
+  width: 50%;
+  float: left;
+  padding-left: 180px;
+}
+
+.intro-right {
+  /*background: linear-gradient(to bottom right, #F7F7F7, white);*/
+  width: 50%;
+  float: right;
+  padding-left: 50px;
+  /*position: relative;
+  top: 50%;
+  transform: translateY(-50%);*/
+}
+
+.garbage-bag {
+   /*margin: auto;
+   display: block;
+   padding-top: 25px;
+   margin-top: 30px;*/
+}
 .intro-line {
-  font-family: "Avenir", Arial, sans-serif;
-  font-weight: normal;
-  font-size: 23px;
-  margin-top: 15px;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  width: 80%;
+
   /*border: 2px #0C6847 solid*/
+}
+
+.intro-title {
+  color: #0F7651;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  width: 70%;
+}
+
+.intro-info {
+  color: #939393;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: normal;
+  width: 80%;
+  font-size: 16px;
+
 }
 
 .when-you-buy {
@@ -208,13 +246,6 @@
   margin: 0 auto;
   /*position: relative;*/
 
-}
-
-.garbage-bag {
-   margin: auto;
-   display: block;
-   padding-top: 25px;
-   margin-top: 30px;
 }
 
 .downward-arrow {
