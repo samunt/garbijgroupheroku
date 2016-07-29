@@ -1,4 +1,4 @@
-<h1>How much garbage space would you like to sell, <%= @user.first_name %>?</h1>
+<h1>How many spaces would you like to sell, <%= @user.first_name %>?</h1>
 
 <%= form_for [@user, @space] do |f| %>
 
@@ -8,7 +8,7 @@
 </div>
 <br />
 <div class="submit">
-  <%= f.submit 'update', data: { confirm: 'Are you confirm that you want sell your spot' } %>
+  <%= f.submit 'update', data: { confirm: 'Are you sure you want to sell this space?' } %>
 </div>
 
 

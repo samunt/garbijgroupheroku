@@ -1,22 +1,24 @@
-<h1 id="newtrans">New Transaction</h1>
 
-  <br />
-  <br />
-  <h4>Hey <%= @user.first_name%>,</h4> <br />
-  you choose <br>
-  Address: <%= @space.address %> <br>
-  Quantity: <%= @quantity %> <br>
-  <br>
-  <%= form_for @transaction do |f| %>
-    <div class="form_field">
-      <%= f.hidden_field :sell_space_id, :value => @space.id %>
-      <%= f.hidden_field :quantity, :value => @quantity %>
-    </div>
-    <div class="submit">
-      <%= f.submit %>
-    </div>
-    <!-- </div> -->
-  <% end %>
+<div class="new-trans-page">
+  <h1 class="newtrans animated fadeInDown">NEW TRANSACTION</h1>
+    <div class="trans-container animated fadeInUp">
+    </br>
+      <h4>Hey <%= @user.first_name%>,</h4> <br />
+      Your garbage dropoff site: <br>
+      </br>
+      Address: <strong> <%= @space.address %> <br> </strong>
+      Quantity: <strong><%= @quantity %> <br><strong>
+      <br>
+      <%= form_for @transaction do |f| %>
+        <div class="form_field">
+          <%= f.hidden_field :sell_space_id, :value => @space.id %>
+          <%= f.hidden_field :quantity, :value => @quantity %>
+        </div>
+        <div class="submit">
+          <%= f.submit class: "btn-trans" %>
+        </div>
+        <!-- </div> -->
+      <% end %>
 
-  <!-- image button for create transaction -->
-  <%= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png"), :controller => 'orders', :action => 'express_checkout' %>
+      <%= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png"), :controller => 'orders', :action => 'express_checkout' %>
+    </div>
