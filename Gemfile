@@ -52,9 +52,12 @@ gem 'wkhtmltopdf-binary'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'puma'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'pry-rails'
