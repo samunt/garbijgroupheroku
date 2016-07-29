@@ -16,17 +16,25 @@
 </header>
 
 <div class="welcome-content">
-  <div class="divider"> </div>
-  <div class="introduction animated fadeIn">
-    <%= image_tag 'money-bags.png', :width => 100, :height => 95, class:"garbage-bag" %>
-    <p class="intro-line">
-      We have saved our customers <strong id="moneySaved">$83,237</strong> since launch!
-    </p>
+<div class="divider"></div>
+
+  <div class="intro-container">
+    <div class="introduction animated fadeIn">
+      <%= image_tag 'money-bag-1.png', :width => 100, :height => 95, class:"garbage-bag" %>
+    </div>
+
+    <div class="introduction animated fadeIn">
+      <p class="intro-line">
+        We have saved our customers <strong id="moneySaved">$83,237</strong> since launch!
+      </p>
+    </div>
   </div>
+
+
   <div class="container">
     <div class="sell-container">
       <div class="when-you-sell animated">
-          <h2 class="when-you-title">When Do I Sell?</h2>
+          <h2 class="when-you-title">when do I sell?</h2>
           <%= image_tag 'money-bag.png',:width => 100, :height => 95, class:"money-bag", href:"money-bag"%>
         <ul class="when-you-sell-list">
           <li>
@@ -44,11 +52,11 @@
 
      <div class="buy-container">
       <div class="when-you-buy animated">
-        <h2 class="when-you-title">When Do I buy?</h2>
+        <h2 class="when-you-title">when do I buy?</h2>
         <%= image_tag 'trash-bin-full.png',:width => 100, :height => 95, class:"trash-bin-full", href:"trash-bin-full"%>
         <ul class="when-you-buy-list">
           <li>
-            Too Much Garbage This Week?
+            Too much garbage this week?
           </li>
           <br />
           <li>
