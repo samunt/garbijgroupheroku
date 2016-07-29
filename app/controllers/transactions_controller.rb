@@ -73,7 +73,7 @@ class TransactionsController < ApplicationController
       TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
       flash[:notice] = "Transaction was successfully created! View receipt in your email. "
-      redirect_to users_path(current_user)
+      #redirect_to users_path(current_user)
       #goes to transactions show view and converts HTML to PDF
 
       # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
@@ -89,6 +89,7 @@ class TransactionsController < ApplicationController
     else
       flash[:alert] = "Whoops, check your payment credentials and try again!"
       redirect_to edit_user_path(current_user)
+      console.log
     end
     # else
     #   render :new

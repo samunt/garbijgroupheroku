@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   #   t.datetime "created_at",       null: false
   #   t.datetime "updated_at",       null: false
   #   t.integer  "cart_id"
-  validates :transaction_id, numericality: { only_integer: true }
+  # validates :transaction_id, numericality: { only_integer: true }
 
   belongs_to :owner, foreign_key: "transaction_id", class_name: "Transaction"
 

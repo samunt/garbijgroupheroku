@@ -1,10 +1,10 @@
 class Space < ActiveRecord::Base
 
-  validates :capacity, numericality: { only_integer: true }
+  #validates :capacity, numericality: { only_integer: true }
   validates :address, presence: true
-  validates :user_id, numericality: { only_integer: true }
-  validates :latitude, numericality: { only_integer: true }
-  
+  #validates :user_id, numericality: { only_integer: true }
+  #validates :latitude, numericality: { only_integer: true }
+
 
 
   has_many :buy_transactions, class_name: 'Transaction', foreign_key: 'buy_space_id'

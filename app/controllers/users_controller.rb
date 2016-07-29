@@ -3,7 +3,7 @@ before_action :require_login, only: [:edit, :update]
 
 
   def show
-    #require_login
+    require_login
     @user = User.find(params[:id])
     @space = Space.new
     @buy_spaces = @user.buy_spaces
