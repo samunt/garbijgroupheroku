@@ -1,17 +1,14 @@
 <div class="col-md-4 blog-main box text-center" id="post_<%= space.id %>">
 
             <div class="panel panel-info"><!-- Panel Info -->
-            
-                <%= link_to "Sell Space(s)", user_space_path(@user, space) %> |
-                <%= link_to "Buy Space(s)", transactions_path %><br>
-
 
                   <div class="panel-heading">
 
                     <h3 class="panel-title">Address: <%= space.address %></h3>
                     <p><strong>Garbage Day: <%= space.garbaje_day %></strong></p>
                     <p><strong>Space(s) For Sale: </strong> <%= space.capacity %></p>
-
+                    <%= link_to "Sell Space(s)", user_space_path(current_user, space), {class:"sell_link"} %> |
+                    <%= link_to "Buy Space(s)", transactions_path %><br>
                   </div>
 
                   <div class="panel-body"><!-- Panel Body -->

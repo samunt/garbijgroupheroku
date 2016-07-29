@@ -42,7 +42,7 @@ function getQuantity(){
 // This is where the AJAx is going to go. The button is on the /user/:id page
 //It will take data from the /user/id/spaces/id page
 //Data will transplant to the
-    $('.sellspacebutton').on('click', function(e){
+    $('.sell_link').on('click', function(e){
       console.log("BUTTON CLICK OMG")
       e.preventDefault();
       $.ajax({

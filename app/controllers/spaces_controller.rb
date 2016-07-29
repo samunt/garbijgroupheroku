@@ -41,12 +41,12 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
     # @user = User.find(params[:user_id])
     # update capacity user
-  #  @space = @user.spaces.find(params[:id])
+    # @space = @user.spaces.find(params[:id])
     @space.capacity = params[:space][:capacity].to_i
     @space.update_attributes(space_params);
-    # respond_to do |format|
+    #respond_to do |format|
       if @space.save
-        # format.js
+        #format.js
         redirect_to user_path(current_user)
         # redirect_to user_spaces_path
       else
@@ -54,6 +54,7 @@ class SpacesController < ApplicationController
         format.json { render json: @space.errors, status: :unprocessable_entity }
         format.js
       end
+    #end
 
   end
   def show
