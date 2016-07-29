@@ -1,15 +1,4 @@
 class Order < ActiveRecord::Base
-  #
-  # create_table "Orders", force: :cascade do |t|
-  #   t.integer  "transaction_id"
-  #   t.string   "ip"
-  #   t.string   "express_token"
-  #   t.string   "express_payer_id"
-  #   t.datetime "created_at",       null: false
-  #   t.datetime "updated_at",       null: false
-  #   t.integer  "cart_id"
-  validates :transaction_id, numericality: { only_integer: true }
-
   belongs_to :owner, foreign_key: "transaction_id", class_name: "Transaction"
 
  def purchase
