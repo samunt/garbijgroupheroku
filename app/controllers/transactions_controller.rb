@@ -66,11 +66,11 @@ class TransactionsController < ApplicationController
       puts "*****************" + @sell_user.first_name
 
 
-      # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-      # sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
+      pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+      sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
       #sends email containing html in transactions show view and PDF to buy_user
-      # TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
-      # TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
+      TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
+      TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
       flash[:notice] = "Transaction was successfully created! View receipt in your email. "
       #redirect_to users_path(current_user)
