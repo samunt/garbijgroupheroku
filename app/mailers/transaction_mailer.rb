@@ -20,7 +20,7 @@ class TransactionMailer < ApplicationMailer
     File.open(tmp_path, 'wb') do |file|
       file << sell_pdf
     end
-    attachments['sell_receipt.pdf'] = File.read("#{Rails.root}/tmp/sell_receipt")
+    attachments['sell_receipt.pdf'] = File.read("#{Rails.root}/tmp/sell_receipt.pdf")
     mail(to: @user.email, subject: "Congrats, your spot was purchased!")
   end
 

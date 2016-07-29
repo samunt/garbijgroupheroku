@@ -77,24 +77,3 @@
 <div id="dropsellspacehere">
 
 </div>
-
-<h3>Your Recent Transaction History</h3>
-<strong>Spaces Sold</strong><br>
-<ul id='sold-spaces'>
-  <% @sell_spaces.each do |space| %>
-    <li>Address: <%= space.address %></li>
-    <% space.sell_transactions.each do |transaction| %>
-      <li>Quantity: <%=transaction.quantity%></li>
-    <% end %>
-  <% end %>
-</ul>
-
-<strong>Spaces Bought</strong><br>
-<ul id='bought-spaces'>
-  <% @buy_spaces.each do |space| %>
-    <li>Address: <%= space.address %></li>
-    <% space.buy_transactions.each do |transaction| %>
-      <li>Quantity: <%=transaction.quantity%></li>
-    <% end %>
-  <% end %>
-</ul>
