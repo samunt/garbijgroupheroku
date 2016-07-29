@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728163127) do
+ActiveRecord::Schema.define(version: 20160729165627) do
 
-  create_table "Orders", force: :cascade do |t|
+  create_table "orders", force: :cascade do |t|
     t.integer  "transaction_id"
     t.string   "ip"
     t.string   "express_token"
     t.string   "express_payer_id"
+    t.integer  "cart_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "cart_id"
   end
 
   create_table "spaces", force: :cascade do |t|
