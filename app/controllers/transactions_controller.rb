@@ -77,7 +77,6 @@ class TransactionsController < ApplicationController
       # tmp_path = Rails.root.join('tmp','receipt.pdf')
 
       # saves PDF to tmp file, which is git ignored
-      # tmp_path = Rails.root.join('tmp','receipt.pdf')
 
       # File.open(tmp_path, 'wb') do |file|
       #   file << pdf
