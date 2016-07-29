@@ -18,6 +18,6 @@ spaces1 = Space.create({capacity: 4, garbaje_day: 12/01/1995, address: '24 Stayn
 
 spaces2 = Space.create({capacity: 2, garbaje_day: 01/14/14, address: '35 St. George St.', user_id: users2.id})
 
-transactions = Transaction.create({buy_space_id: spaces1.id, sell_space_id: spaces2.id, total_fee: 20, transaction_date: 12/31/2015})
+transactions = Transaction.create({buy_space_id: spaces1.id, sell_space_id: spaces2.id, total_fee: 20})
 
-transactions2 = Transaction.create({buy_space_id: spaces2.id, sell_space_id: spaces1.id, total_fee: 14, transaction_date: 12/28/2014})
+transactions2 = Transaction.create({buy_space_id: spaces2.id, sell_space_id: spaces1.id, total_fee: 14})
