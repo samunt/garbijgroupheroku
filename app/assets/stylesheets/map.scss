@@ -1,41 +1,139 @@
 @media screen and (min-width: 0px) {
   #map {
     height: 500px;
-    margin-top: 100px;
+    // margin-top: 100px;
     width: 100%
   }
   .map-form {
     position: relative;
   }
-
-  .geolocation-list {
-    background-color: red;
-    position: relative;
-    left: 80px;
-    margin-top: 30px;
-  }
+  //
+  // .geolocation-list {
+  //   background-color: red;
+  //   position: relative;
+  //   left: 80px;
+  //   margin-top: 30px;
+  // }
 }
 
 @media screen and (min-width: 480px) {
     #map {
       height: 500px;
-      margin-top: 100px;
+      // margin-top: 100px;
       width: 40%;
     }
+    //
+    // .map-form {
+    //   position: absolute;
+    //   left: 50%;
+    //   bottom: 70%;
+    // }
+    //
+    // .geolocation-list {
+    //   position: absolute;
+    //   left: 55%;
+    //   bottom: 40%;
+    // }
+}
 
-    .map-form {
-      position: absolute;
-      left: 50%;
-      bottom: 70%;
-    }
-
-    .geolocation-list {
-      position: absolute;
-      left: 55%;
-      bottom: 40%;
-    }
+#map {
+  width: 100%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
 }
 
 .map-form {
-  text-align: center;
+}
+
+
+.map-trans {
+  height: 100%;
+  padding-top: 45px;
+  padding-bottom: 40px;
+  margin: 0 auto;
+  // background-color: red;
+  margin-top: 100px;
+  width: 80%;
+  border-top: 15px solid #E5E5E5;
+  border-bottom: 15px solid #E5E5E5;
+  overflow: auto;
+
+  // min-height: 600px;
+}
+
+// .map-list {
+//   border-radius: 17px;
+//   background-color: rgba(255, 255, 255, 0.95);
+//   font-family: "Avenir next", Helvetica, sans-serif;
+//    font-weight: lighter;
+//    color: #4E8D77;
+//    border: 3px solid #A5A5A5;
+//    padding-bottom: 35px;
+//    padding-top: 20px;
+//    width: 300px;
+//    text-align: center;
+//    line-height: 20px;
+//    margin-top: 100px;
+//    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+//    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+//    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+//    margin: auto;
+//  }
+
+.geolocation-list {
+  width: 100%;
+  max-width: 350px;
+  background-color: #F5F5F5;
+  border-radius: 10px;
+  font-family: "Avenir next", Helvetica, sans-serif;
+   font-weight: lighter;
+   margin-top: 15px;
+   padding-left: 30px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+   margin-left: 20px;
+
+}
+
+.column-left {
+  // background-color: red;
+  padding-left: 4%;
+  padding-right: 4%;
+  width: 50%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.column-right {
+  // background-color: blue;
+  padding-right: 2%;
+  padding-left: 2%;
+  width: 50%;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.all-list {
+  list-style: none;
+}
+
+.map-trans-btn {
+  border: none;
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 10px;
+  background: #0C6847;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.map-trans-btn:hover {
+  background: #4E8D77;
+  text-decoration: none;
+  transition: 0.5s ease;
 }
