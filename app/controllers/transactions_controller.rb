@@ -58,7 +58,8 @@ class TransactionsController < ApplicationController
     if response.success? then
       logger.debug "charge successful"
       @space = Space.find(transaction_params[:sell_space_id])
-      @transaction.quantity = @space.capacity
+      puts '**************' + @space.inspect
+      # @transaction.quantity = @space.capacity
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
       redirect_to user_path(@user)
