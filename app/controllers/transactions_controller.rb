@@ -70,6 +70,7 @@ class TransactionsController < ApplicationController
       TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
       flash[:notice] = "Transaction was successfully created! View receipt in your email. "
+      redirect_to users_path(current_user)
       #goes to transactions show view and converts HTML to PDF
 
       # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
