@@ -56,7 +56,6 @@ class SpacesController < ApplicationController
         format.js
       end
     #end
-
   end
   def show
     @user = User.find(params[:user_id])
