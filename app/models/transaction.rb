@@ -1,10 +1,10 @@
 class Transaction < ActiveRecord::Base
 
 
-  validates :buy_space_id, numericality: { only_integer: true }
-  validates :sell_space_id, numericality: { only_integer: true }
-  validates :total_fee, numericality: { only_integer: true }
-  validates :quantity, numericality: { only_integer: true }, length: { in: 1..4 }
+  # validates :buy_space_id, numericality: { only_integer: true }
+  # validates :sell_space_id, numericality: { only_integer: true }
+  # validates :total_fee, numericality: { only_integer: true }
+  # validates :quantity, numericality: { only_integer: true }, length: { in: 1..4 }
 
 
 
