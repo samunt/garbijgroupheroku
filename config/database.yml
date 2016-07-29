@@ -4,12 +4,7 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-default: &default
-  adapter: postgresql
-  enconding: unicode
-  database: garbaje_development
-  pool: 5
-  host: localhost
+
 
 development:
   adapter: postgresql
@@ -24,13 +19,13 @@ development:
 test:
     adapter: postgresql
     enconding: unicode
-    database: garbaje_development
+    database: garbaje_test
     pool: 5
     host: localhost
 
 production:
     adapter: postgresql
     enconding: unicode
-    database: garbaje_development
+    database: garbaje_production
     pool: 5
     host: localhost
