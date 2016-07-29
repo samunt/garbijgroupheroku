@@ -34,10 +34,8 @@ class TransactionsController < ApplicationController
     @user = current_user
     if @transaction.save
 
-
         #sends email containing html in transactions show view and PDF to buy_user
         # TransactionMailer.receipt_email(@user).deliver_later
-
 
         # payment info of user entered for activemerchant
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
