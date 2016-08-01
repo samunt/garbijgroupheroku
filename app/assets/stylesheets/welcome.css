@@ -90,52 +90,92 @@
   background-color: #EDEDED;
   width: 100%;
   height: 30px;
-  margin-top: 100px
+  margin-top: 70px
 }
 
-.introduction {
-  background: linear-gradient(to bottom right, #F7F7F7, white);
-  color: #0F7651;
+.intro-container {
   width: 100%;
-  height: 180px;
-  text-align: center;
-  margin-top: 30px;
+  height: 293px;
+  /*text-align: center;*/
+  margin-top: 50px;
   margin-bottom: 80px;
   border-top: 5px;
   border-bottom: 5px;
   border-left: 0px;
   padding-top: 5px;
-
-  /*z-index: 10;*/
-  /*position: absolute;*/
 }
 
+.intro-left {
+  text-align: center;
+  width: 50%;
+  float: left;
+  padding-left: 180px;
+}
+
+.intro-right {
+  border-radius: 15px;
+  background: linear-gradient(to bottom right, #F7F7F7, white);
+  width: 50%;
+  float: right;
+  padding-left: 60px;
+  /*position: relative;
+  top: 50%;
+  transform: translateY(-50%);*/
+}
+
+.garbage-bag {
+   /*margin: auto;
+   display: block;
+   padding-top: 25px;
+   margin-top: 30px;*/
+}
 .intro-line {
-  font-family: "Avenir", Arial, sans-serif;
-  font-weight: normal;
-  font-size: 23px;
-  margin-top: 15px;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: lighter;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  width: 80%;
+
   /*border: 2px #0C6847 solid*/
+}
+
+.intro-title {
+  color: #129868;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  width: 70%;
+}
+
+.intro-info {
+  color: #939393;
+  font-family: "Avenir next", Arial, sans-serif;
+  font-weight: normal;
+  width: 80%;
+  font-size: 16px;
+
 }
 
 .when-you-buy {
   font-family: "Avenir", Arial, sans-serif;
   font-weight: normal;
-  color: #707070;
+  color: white;
   text-align: center;
-  /*background-color: #A6C2B8;*/
+  background-color: #0F7651;
   width: 500px;
   height: 500px;
   float: left;
-  border-style: inset;
-  border-width: 8px;
-  border-color: #9CB9AE;
+  /*border-style: inset;
+  border-width: 8px;*/
+  /*border-color: #9CB9AE;*/
   border-radius: 15px;
   display: inline-block;
   margin-left: 10px;
   padding-top: 20px;
-  /*box-shadow: 10px 10px 5px #888888;*/
-
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
 }
 
 
@@ -154,24 +194,24 @@
 }
 
 .when-you-sell {
-  /*background-color: #F1F1F1;*/
   font-family: "Avenir", Arial, sans-serif;
   font-weight: normal;
-  color: #707070;
+  color: white;
   text-align: center;
-  /*background-color: #A6C2B8;*/
+  background-color: #0F7651;
   width: 500px;
   height: 500px;
   float: right;
-  border-style: outset;
+  /*border-style: outset;
   border-width: 8px;
-  border-color: #9CB9AE;
+  border-color: #9CB9AE;*/
   border-radius: 15px;
   display: inline-block;
   margin-right: 10px;
   padding-top: 20px;
-  /*box-shadow: 10px 10px 5px #888888;*/
-
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
 }
 
 .when-you-sell-list {
@@ -187,6 +227,7 @@
 .sell-container, .buy-container {
   width: 49.5%;
   display: inline-block;
+  margin-bottom: 30px;
 }
 
 
@@ -206,13 +247,6 @@
   margin: 0 auto;
   /*position: relative;*/
 
-}
-
-.garbage-bag {
-   margin: auto;
-   display: block;
-   padding-top: 25px;
-   margin-top: 30px;
 }
 
 .downward-arrow {
@@ -260,12 +294,12 @@
 .loginform {
   padding-bottom: 50px;
 }
-
+/*
 .parallax-window {
   background: transparent;
   min-height: 400px;
   background-color: #0C6847;
-}
+}*/
 
 video#video {
   width: 100%;
