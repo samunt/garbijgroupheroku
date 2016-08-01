@@ -57,10 +57,3 @@ function makeMap(){
     // });
 
 };
-
-// $(document).ready(function(){
-//
-// function initMap() {
-// }
-//
-// });

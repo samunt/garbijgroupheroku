@@ -17,6 +17,8 @@
 # Space.destroy_all
 # Transaction.destroy_all
 #
+# MUST ADD IN CREDIT CARD INFO INTO USERS CREATED BELOW OR ELSE VALIDATIONS FAIL
+
 # users1 = User.create({first_name: 'Enakshi', last_name: 'Shah', email: 'enakshi.shah@mail.utoronto.ca', password: 'test', phone: '647-222-2222', })
 
 # users1 = User.create({first_name: 'Enakshi', last_name: 'Shah', email: 'enakshi.shah@mail.utoronto.ca', password: 'test', phone: '647-222-2222'})
