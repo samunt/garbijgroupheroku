@@ -1,4 +1,7 @@
 $(function(){
+
+
+
   $('#find-nearby').on('click', function(){
     console.log('clicked')
 
@@ -57,4 +60,14 @@ function getQuantity(){
     });
 
 
+
+
+
+    // $('#geo-address').geocomplete();
+
+
+});
+
+$(function(){
+  $("#geo-address").geocomplete()
 });

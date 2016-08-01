@@ -58,7 +58,7 @@ class TransactionsController < ApplicationController
     if response.success? then
       logger.debug "charge successful"
       @space = Space.find(transaction_params[:sell_space_id])
-      @transaction.quantity = @space.capacity
+      @quantity = params[:quantity]
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
       redirect_to user_path(@user)
@@ -89,7 +89,7 @@ class TransactionsController < ApplicationController
     else
       flash[:alert] = "Whoops, check your payment credentials and try again!"
       redirect_to edit_user_path(current_user)
-      console.log
+      # console.log
     end
     # else
     #   render :new
