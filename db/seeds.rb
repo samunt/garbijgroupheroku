@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# # This file should contain all the record creation needed to seed the database with its default values.
+# # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# #
+# # Examples:
+# #
+# #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+# #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-# Examples:
+# User.destroy_all
+# Space.destroy_all
+# Transaction.destroy_all
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
@@ -11,6 +18,9 @@
 # Transaction.destroy_all
 #
 # users1 = User.create({first_name: 'Enakshi', last_name: 'Shah', email: 'enakshi.shah@mail.utoronto.ca', password: 'test', phone: '647-222-2222', })
+
+# users1 = User.create({first_name: 'Enakshi', last_name: 'Shah', email: 'enakshi.shah@mail.utoronto.ca', password: 'test', phone: '647-222-2222'})
+
 #
 # users2 = User.create({first_name: 'Sam', last_name: 'Unterman', email: 'sam@mail.com', password: 'test2', phone: '333-333-3333'})
 #

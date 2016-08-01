@@ -58,13 +58,10 @@ class TransactionsController < ApplicationController
     if response.success? then
       logger.debug "charge successful"
       @space = Space.find(transaction_params[:sell_space_id])
-      puts '**************' + @space.inspect
-      # @transaction.quantity = @space.capacity
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
       redirect_to user_path(@user)
       @sell_user = User.find(@space.user_id)
-      puts "*****************" + @sell_user.first_name
 
 
       pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
