@@ -28,7 +28,7 @@ class TransactionMailer < ApplicationMailer
       file << sell_pdf
     end
     # attach PDF to email
-    attachments['sell_receipt.pdf'] = File.read("#{Rails.root}/tmp/sell_receipt.pdf ")
+    attachments['sell_receipt.pdf'] = File.read("#{Rails.root}/tmp/sell_receipt.pdf")
     mail(to: @user.email, subject: "Congrats, your spot was purchased!")
   end
 

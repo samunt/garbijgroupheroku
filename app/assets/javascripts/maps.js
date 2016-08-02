@@ -50,10 +50,24 @@ function makeMap(){
 
     }
 
+
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once) WUT?
     // var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
     //   this.setZoom(7);
     //   google.maps.event.removeListener(boundsListener);
     // });
+
+    var placeSearch, autocomplete;
+    var componentForm = {
+      street_number: 'short_name',
+      route: 'long_name',
+      locality: 'long_name',
+      administrative_area_level_1: 'short_name',
+      country: 'long_name',
+      postal_code: 'short_name'
+    };
+
+
+
 
 };
