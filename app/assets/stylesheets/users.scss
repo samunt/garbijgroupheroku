@@ -6,10 +6,13 @@
 
 .panel-heading {
   color: white !important;
-  background-color: #129868 !important;
+  // background-color: #129868 !important;
 }
 
 .panel-info {
-
-
+  -webkit-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  -moz-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  background-color: #328165;
+  border: solid 2px #979797 !important;
 }
