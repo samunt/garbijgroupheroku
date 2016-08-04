@@ -5,14 +5,29 @@
 // .btn btn-primary btn-lg
 
 .panel-heading {
-  color: white !important;
-  // background-color: #129868 !important;
+  color: #979797 !important;
+  // font-weight: lighter !important;
+  border-style: none !important;
+  background-color: #328165 !important;
+  background-image: none;
 }
 
 .panel-info {
   -webkit-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
   -moz-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
   box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
-  background-color: #328165;
-  border: solid 2px #979797 !important;
+  border: solid 0.5px #E3E3E3 !important;
+}
+
+.edit-prof {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.exist-title {
+  margin-bottom: 20px;
+}
+
+.panel-title {
+  margin-top: 10px;
 }

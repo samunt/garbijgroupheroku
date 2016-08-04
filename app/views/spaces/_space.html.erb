@@ -3,12 +3,11 @@
             <div class="panel panel-info"><!-- Panel Info -->
 
                   <div class="panel-heading">
-
-                    <h3 class="panel-title">Address: <%= space.address %></h3>
-                    <p><strong>Garbage Day: <%= space.garbaje_day %></strong></p>
-                    <p><strong>Space(s) For Sale: </strong> <%= space.capacity %></p>
-                    <%= link_to "Sell Space(s)", user_space_path(current_user, space), {class:"sell_link"} %> |
-                    <%= link_to "Buy Space(s)", transactions_path %><br>
+                    <h3 class="panel-title">Address: <strong><%= space.address %></strong></h3><br>
+                    <p>Garbage Day: <strong><%= space.garbaje_day %></strong></p>
+                    <p>Space(s) For Sale: <strong><%= space.capacity %></strong></p>
+                    <strong><%= link_to "SELL SPACE(S)", user_space_path(current_user, space), {class:"sell_link"} %></strong> |
+                    <strong><%= link_to "BUY SPACE(S)", transactions_path %><br></strong>
                   </div>
 
                   <div class="panel-body"><!-- Panel Body -->
