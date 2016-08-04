@@ -33,8 +33,8 @@ Rails.application.configure do
       :port               => 587,
       :domain             => 'sendgrid.net', #you can also use google.com
       :authentication     => :plain,
-      :user_name          => 'app54659750@heroku.com',
-      :password           => 'Garbijpw1234'
+      :user_name          => ENV["MAILER_USER_NAME"],
+      :password           => ENV["MAILER_PASSWORD"]
     }
 
 
