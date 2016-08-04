@@ -1,16 +1,16 @@
 class TransactionsController < ApplicationController
 
   def index
-    #@spaces = Space.find(params[:sell_space_id])
     # logic for viewing nearby spaces falls under spaces controller because spaces partial is being rendered
     @transactions = Transaction.all
 
     if request.xhr?
-        @spaces = Space.where("capacity >=? ", params[:quantity])
-        @spaces.near([params[:latitude], params[:logitude]])
-        @quantity = params[:quantity]
-        @spaces = Space.all
-        @params = params
+      # filter geocoder results by capacity greater than quantity
+      @spaces = Space.where("capacity >=? ", params[:quantity])
+      @spaces.near([params[:latitude], params[:logitude]])
+      @quantity = params[:quantity]
+      @spaces = Space.all
+      @params = params
     else
       @spaces = Space.all
     end
@@ -34,10 +34,8 @@ class TransactionsController < ApplicationController
     @user = current_user
     if @transaction.save
 
-        #sends email containing html in transactions show view and PDF to buy_user
-        # TransactionMailer.receipt_email(@user).deliver_later
-
         # payment info of user entered for activemerchant
+        #must hardcode credit card number since this is default accepted by Stripe
         paymentInfo = ActiveMerchant::Billing::CreditCard.new(
             :number             => '4242424242424242',
             :month              => @user.credit_card_month,
@@ -58,41 +56,29 @@ class TransactionsController < ApplicationController
     if response.success? then
       logger.debug "charge successful"
       @space = Space.find(transaction_params[:sell_space_id])
+      # substract quantity from capacity on users profile page and list of locations
       @space.capacity -= @transaction.quantity
       @space.update_attributes(capacity: @space.capacity )
       redirect_to user_path(@user)
       @sell_user = User.find(@space.user_id)
-      puts "*****************" + @sell_user.first_name
 
 
+      #create PDF receipts for both buyer and seller from html templates under transactions
       pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
       sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
-      #sends email containing html in transactions show view and PDF to buy_user
+
+      #sends email containing PDF receipt and email body
       TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
       TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
       flash[:notice] = "Transaction was successfully created! View receipt in your email. "
-      #redirect_to users_path(current_user)
-      #goes to transactions show view and converts HTML to PDF
 
-      # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-      # saves PDF to tmp file, which is git ignored
-      # tmp_path = Rails.root.join('tmp','receipt.pdf')
-
-      # saves PDF to tmp file, which is git ignored
-
-      # File.open(tmp_path, 'wb') do |file|
-      #   file << pdf
-      # end
 
     else
       flash[:alert] = "Whoops, check your payment credentials and try again!"
       redirect_to edit_user_path(current_user)
       console.log
     end
-    # else
-    #   render :new
-    # end
     end
   end
 
@@ -101,6 +87,7 @@ class TransactionsController < ApplicationController
   end
 
   def delete
+    # method not needed for first iteration
     @transaction = Transaction.find(params[:id])
     @transaction.destroy
   end

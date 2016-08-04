@@ -20,6 +20,25 @@ Rails.application.configure do
   )
   end
 
+
+    # Action Mailer configuration
+    #These settings are for the sending out email for active admin and consequently the   devise mailer
+    ActionMailer::Base.delivery_method = :smtp
+    ActionMailer::Base.perform_deliveries = true
+    ActionMailer::Base.raise_delivery_errors = true
+    ActionMailer::Base.smtp_settings =
+    {
+
+      :address            => 'smtp.sendgrid.net',
+      :port               => 587,
+      :domain             => 'sendgrid.net', #you can also use google.com
+      :authentication     => :plain,
+      :user_name          => ENV["MAILER_USER_NAME"],
+      :password           => ENV["MAILER_PASSWORD"]
+    }
+
+
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
