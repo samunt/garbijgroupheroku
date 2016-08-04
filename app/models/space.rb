@@ -15,4 +15,12 @@ class Space < ActiveRecord::Base
 
   belongs_to :user
 
+  validate :space_count_within_limit, :on => :create
+
+  def space_count_within_limit
+    if self.user.spaces(:reload).count >= 3
+      errors.add(:base, "Exceeded Space Limit")
+    end
+  end
+
 end

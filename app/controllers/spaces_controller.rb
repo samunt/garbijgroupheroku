@@ -18,6 +18,7 @@ class SpacesController < ApplicationController
     @quantity = params[:quantity]
   end
   def create
+    @user = current_user
     @space = Space.new(space_params)
     @spaces = Space.all
     @space.user_id = params[:user_id]
