@@ -3,7 +3,7 @@
 <%= form_for [@user, @space] do |f| %>
 
 <div class="how-many-field">
-  <div class="form_field">
+  <div class="how-form-field">
     <%= f.label :capacity %>
     <%= f.number_field :capacity, min:1 , max: 4 %>
   </div>
