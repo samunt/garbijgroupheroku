@@ -3,7 +3,24 @@ Rails.application.configure do
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
-  # since you don't have to restart the web server when you make code changes.
+  # since you don't have to restart the web server when you make code changes.'
+
+  # Action Mailer configuration
+  #These settings are for the sending out email for active admin and consequently the   devise mailer
+  # ActionMailer::Base.delivery_method = :smtp
+  # ActionMailer::Base.perform_deliveries = true
+  # ActionMailer::Base.raise_delivery_errors = true
+  # ActionMailer::Base.smtp_settings =
+  # {
+  #
+  #   :address            => 'smtp.gmail.com',
+  #   :port               => 587,
+  #   :domain             => 'gmail.com', #you can also use google.com
+  #   :authentication     => :plain,
+  #   :user_name          => @user.email,
+  #   :password           => @user.password
+  # }
+
   config.cache_classes = false
 
   # Do not eager load code on boot.

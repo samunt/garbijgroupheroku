@@ -1,3 +1,59 @@
 @media (min-width: 992px) {
-  
+
+}
+
+// .btn btn-primary btn-lg
+
+.panel-heading {
+  color: #979797 !important;
+  // font-weight: lighter !important;
+  border-style: none !important;
+  background-color: #328165 !important;
+  background-image: none;
+}
+
+.panel-info {
+  -webkit-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  -moz-box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  box-shadow: 8px 8px 4px 0px rgba(0,0,0,0.3) !important;
+  border: solid 0.5px #E3E3E3 !important;
+}
+
+.edit-prof {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.exist-title {
+  margin-bottom: 20px;
+}
+
+.panel-title {
+  margin-top: 10px;
+}
+
+.btn-primary {
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2) !important;
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2) !important;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2) !important;
+  -webkit-border-radius: 6 !important;
+  -moz-border-radius: 6 !important;
+  border-radius: 6px !important;
+  font-family: "Avenir next", Arial, sans-serif !important;
+  font-weight: normal !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+  background: #118B5F !important;
+  padding: 9px 32px 9px 32px !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  border-style: none !important;
+}
+
+.btn-primary:hover {
+  background: #72a593 !important;
+  color: #118B5F !important;
+  text-decoration: none !important;
+  transition: 0.5s ease !important;
+
 }

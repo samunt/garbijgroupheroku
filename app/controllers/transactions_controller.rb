@@ -1,16 +1,16 @@
 class TransactionsController < ApplicationController
 
   def index
-    #@spaces = Space.find(params[:sell_space_id])
     # logic for viewing nearby spaces falls under spaces controller because spaces partial is being rendered
     @transactions = Transaction.all
 
     if request.xhr?
-        @spaces = Space.where("capacity >=? ", params[:quantity])
-        @spaces.near([params[:latitude], params[:logitude]])
-        @quantity = params[:quantity]
-        @spaces = Space.all
-        @params = params
+      # filter geocoder results by capacity greater than quantity
+      @spaces = Space.where("capacity >=? ", params[:quantity])
+      @spaces.near([params[:latitude], params[:logitude]])
+      @quantity = params[:quantity]
+      @spaces = Space.all
+      @params = params
     else
       @spaces = Space.all
     end
@@ -95,6 +95,7 @@ class TransactionsController < ApplicationController
   end
 
   def delete
+    # method not needed for first iteration
     @transaction = Transaction.find(params[:id])
     @transaction.destroy
   end
