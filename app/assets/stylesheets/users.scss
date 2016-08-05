@@ -55,5 +55,57 @@
   color: #118B5F !important;
   text-decoration: none !important;
   transition: 0.5s ease !important;
+}
 
+.modal-footer {
+  text-align: center !important;
+}
+
+.how-many-field {
+  display: inline-block;
+}
+
+.how-many-field .submit {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.form_field {
+  margin-right: 5px;
+  float: left;
+}
+
+.submit input{
+  margin-top: 7px;
+}
+
+.updatesellcapacity {
+  font-family: "Avenir", Arial, sans-serif;
+  font-weight: normal;
+  color: white;
+  text-align: center;
+  background-color: #6BA993;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  padding-bottom: 6px;
+  // padding: 4px;
+}
+
+.updatesellcapacity h3 {
+  padding-top: 18px;
+}
+
+.field label {
+  // background-color: red;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 400 !important;
+  font-size: 25px;
+  color: white;
+}
+
+.submit input {
+  border-radius: 7px;
+  border-style: none;
+  margin-bottom: 18px;
 }
