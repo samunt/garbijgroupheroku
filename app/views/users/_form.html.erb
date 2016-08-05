@@ -13,6 +13,8 @@
 <div class="newuser animated fadeInUp">
     <h1 class="sign-up-title">SIGN UP</h1>
 
+    <%= image_tag 'signup.png', class:"signup-icon" %>
+
     <div class="form-entry">
       <div class="form_field">
         <%= f.label :first_name %><br>
@@ -40,27 +42,6 @@
       </div>
 
       <br>
-      <h4 class="credit-card-title">Your Credit Card </br>Credential</h4>
-
-      <div class="form_field">
-        <%= f.label :credit_card_number %><br>
-        <%= f.text_field :credit_card_number %>
-      </div>
-
-      <div class="form-field">
-        <%= f.label :credit_card_month %><br>
-        <%= f.text_field :credit_card_month %>
-      </div>
-
-      <div class="form_field">
-        <%= f.label :credit_card_year %><br>
-        <%= f.text_field :credit_card_year %>
-      </div>
-
-      <div class="form-field">
-        <%= f.label :credit_card_verification_value %><br>
-        <%= f.text_field :credit_card_verification_value %>
-      </div>
 
       <div class="submit">
         <%= f.submit class: "signup-btn" %>

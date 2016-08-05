@@ -1,8 +1,8 @@
 <div class="user-profile-container">
   <div class="user-profile">
-    <h3 class="user-profile-title">
+    <h2 class="user-profile-title animated fadeIn">
       Hello <%= @user.first_name %> <%= @user.last_name %>!
-    </h3>
+    </h2>
 
     <!-- eventually make these links an AJAX call -->
     <div class="edit-prof"><%= link_to "EDIT PROFILE", edit_user_path %></div>

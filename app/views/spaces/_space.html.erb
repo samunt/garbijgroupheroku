@@ -2,8 +2,8 @@
 
             <div class="panel panel-info animated fadeInUp"><!-- Panel Info -->
 
-                  <div class="panel-heading">
-                    <h3 class="panel-title">Address: <strong><%= space.address %></strong></h3>
+                  <div class="panel-heading garbage-bin">
+                    <h3 class="panel-title"><%= space.address %></h3>
                     <p>Garbage Day: <strong><%= space.garbaje_day %></strong></p>
                     <p>Space(s) for Sale: <strong><%= space.capacity %></strong></p>
                     <strong><%= link_to "SELL SPACES", user_space_path(current_user, space), {class:"sell_link"} %></strong> |
