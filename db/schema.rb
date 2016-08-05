@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729165627) do
+ActiveRecord::Schema.define(version: 20160802175939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,14 +57,10 @@ ActiveRecord::Schema.define(version: 20160729165627) do
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "phone"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "salt"
     t.string   "crypted_password"
-    t.string   "credit_card_number"
-    t.string   "credit_card_month"
-    t.string   "credit_card_year"
-    t.string   "credit_card_verification_value"
     t.string   "billing_address"
     t.string   "city"
     t.string   "state"

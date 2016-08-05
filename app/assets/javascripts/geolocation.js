@@ -1,4 +1,7 @@
 $(function(){
+
+
+
   $('#find-nearby').on('click', function(){
     console.log('clicked')
 
@@ -57,4 +60,22 @@ function getQuantity(){
     });
 
 
+
+
+
+
+
+
 });
+
+// $(function(){
+//   $("#geo-input-address").geocomplete()
+// });
+
+function initialize() {
+
+var input = document.getElementById('searchTextField');
+var autocomplete = new google.maps.places.Autocomplete(input);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);

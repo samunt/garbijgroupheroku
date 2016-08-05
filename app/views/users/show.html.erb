@@ -35,6 +35,7 @@
     </div>
 
 
+
     <!-- Modal  create action -->
       <%= form_for([@user,@space], remote: true) do |f| %>
         <div class="modal fade" id="mynewpost" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -130,6 +131,7 @@
               <div class="field" id="auto-address">
                 <%= f.hidden_field :address %>
               </div>
+              
               <div class="field">
                 <%= f.label :garbage_day %><br>
                 <%= f.select(:garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], { :class => 'form-control'}) %>
@@ -148,7 +150,6 @@
     <!-- Modal -->
 
    <!-- this is where we are going to AJAX in the sell space from usr/id/spaces/id -->
-
 
 </div>
 
