@@ -69,11 +69,11 @@
   margin-left: 5px;
   display: inline-block;
 }
-
-.form_field {
-  margin-right: 5px;
-  float: left;
-}
+//
+// .form_field {
+//   margin-right: 5px;
+//   float: left;
+// }
 
 .submit input{
   margin-top: 7px;
@@ -87,7 +87,7 @@
   background-color: #6BA993;
   margin-bottom: 20px;
   border-radius: 7px;
-  padding-bottom: 6px;
+  // padding-bottom: 6px;
   // padding: 4px;
 }
 
@@ -108,4 +108,8 @@
   border-radius: 7px;
   border-style: none;
   margin-bottom: 18px;
+}
+
+#space_capacity {
+  color: black;
 }
