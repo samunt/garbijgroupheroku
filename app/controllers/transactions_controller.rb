@@ -52,7 +52,7 @@ class TransactionsController < ApplicationController
       )
 
 
-          logger.debug "charge successful"
+          logger.debug "*******CHARGE SUCCESSFULL*********"
           @space = Space.find(transaction_params[:sell_space_id])
           @quantity = params[:quantity].to_s
           @space.capacity -= @transaction.quantity
@@ -69,24 +69,11 @@ class TransactionsController < ApplicationController
             TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
             flash[:notice] = "Transaction was successfully created! View receipt in your email. "
-            # redirect_to users_path(current_user)
-            # goes to transactions show view and converts HTML to PDF
-            #
-            # pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-            # saves PDF to tmp file, which is git ignored
-            # tmp_path = Rails.root.join('tmp','receipt.pdf')
-            #
-            # saves PDF to tmp file, which is git ignored
-            #
-            # File.open(tmp_path, 'wb') do |file|
-            #   file << pdf
-            # end
 
         else
           # rescue Stripe::CardError => e
           flash[:error] = e.message
           redirect_to edit_user_path(current_user)
-          # console.log
         end
   end
 
