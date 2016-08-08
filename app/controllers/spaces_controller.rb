@@ -24,7 +24,7 @@ class SpacesController < ApplicationController
     @space.user_id = params[:user_id]
     respond_to do |format|
       if @space.save
-        #format.js
+        format.js
       else
         format.html { render :new }
         format.json { render json: @space.errors, status: :unprocessable_entity }
