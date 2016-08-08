@@ -46,7 +46,7 @@ before_action :require_login, only: [:edit, :update]
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :credit_card_number, :credit_card_month, :credit_card_year, :credit_card_verification_value, :billing_address, :city, :state, :zip)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   end
 
 end
