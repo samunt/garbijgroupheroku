@@ -3,6 +3,7 @@
 <head>
     <title>Gärbij</title>
 
+  <%= stylesheet_link_tag 'http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css' %>
   <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Montserrat' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -67,7 +68,67 @@
   <div class="push"></div>
 </main>
 
-<footer> &copy; Gärbij 2016 </footer>
+  <footer class="footer-distributed animated fadeInUp">
+
+      <div class="footer-left">
+
+        <div class="logo-footer">
+          <%= image_tag 'garbij_logo.png', :width => 120, :height => 45 %>
+        </div>
+
+
+        <p class="footer-links">
+          <a href="#">Home</a>
+          ·
+          <a href="#">About</a>
+          ·
+          <a href="#">Faq</a>
+          ·
+          <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">&copy; Gärbij 2016</p>
+      </div>
+
+      <div class="footer-center">
+
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p><span>220 King St W, Suite 200</span> Toronto, ON M5H 1K4</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone"></i>
+          <p>1 800 204 9936</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:bennyxnguyen@gmail.com">garbij@info.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+
+        <p class="footer-company-about">
+          <span>About the company</span>
+          Garbij is the worlds first shared economy platform for residential trash.
+          With Garbij, simply log on, and "buy" or "sell" excess garbage space with your neighbours.
+        </p>
+
+        <div class="footer-icons">
+
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+      </div>
+
+    </footer>
 
 </body>
 

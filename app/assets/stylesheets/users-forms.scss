@@ -157,7 +157,7 @@ input {
 }
 
 .user-profile {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
   font-family: "Avenir next", Helvetica, sans-serif;
   color: #4E8D77;
   // font-weight: lighter;
@@ -171,6 +171,7 @@ input {
  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.37);
  margin: auto;
+ border-radius: 15px;
 
 }
 
@@ -198,6 +199,7 @@ input {
    margin: auto;
    margin-top: 100px;
    padding-bottom: 60px;
+   border-radius: 15px;
 }
 
 .edit-user-title {

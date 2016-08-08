@@ -4,21 +4,21 @@
 html, body {
   height: 100%;
 }
-#application_body {
-  min-height: 100%;
-  margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
-}
-footer {
-  height: 50px; /* '.push' must be the same height as 'footer' */
-  font-family: "Avenir", Arial, sans-serif;
-  font-weight: normal;
-  font-size: 11px;
-  color: #0C6847;
-  padding: 2rem;
-  text-align: center;
-
-}
-
-.push {
-  height: 50px; /* '.push' must be the same height as 'footer' */
-}
+// #application_body {
+//   min-height: 100%;
+//   margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
+// }
+// footer {
+//   height: 50px; /* '.push' must be the same height as 'footer' */
+//   font-family: "Avenir", Arial, sans-serif;
+//   font-weight: normal;
+//   font-size: 11px;
+//   color: #0C6847;
+//   padding: 2rem;
+//   text-align: center;
+//
+// }
+//
+// .push {
+//   height: 50px; /* '.push' must be the same height as 'footer' */
+// }
