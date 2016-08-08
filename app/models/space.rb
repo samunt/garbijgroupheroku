@@ -15,6 +15,7 @@ class Space < ActiveRecord::Base
 
   belongs_to :user
 
+  #limits spaces a user can create to 3
   validate :space_count_within_limit, :on => :create
 
   def space_count_within_limit

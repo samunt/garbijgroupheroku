@@ -12,7 +12,8 @@ $('.count').each(function () {
 
 $(function() {
   $("form.new_space").on("ajax:success", function(event, data, status, xhr) {
-    // alert('created new space')
+    alert('created new space')
+    console.log("created new space")
     // var fulladdress;
     // $("form.new_building")[0].reset();
     // $('#new-building-modal').modal('hide');

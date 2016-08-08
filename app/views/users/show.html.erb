@@ -50,16 +50,27 @@
 
                         <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
                         <style>
+
                             #controls,
                             #locationField {
                                 position: relative;
+                                display: inline-block;
                                 width: 480px;
+                                margin-bottom: 10px
                             }
+
                             #autocomplete {
-                                position: absolute;
+                                position: relative;
                                 top: 0;
                                 left: 0;
-                                width: 99%;
+                                width: 100%;
+                            }
+
+                            .autocomplete-window {
+                              margin: 10px;
+                              display: inline-block;
+                              border: collapse;
+                              /*border: solid 1px #118B5F !important;*/
                             }
 
                             .pac-container {
@@ -67,25 +78,36 @@
                             }
 
                             .label {
-                                text-align: right;
-                                font-weight: bold;
+                                text-align: center;
+                                font-weight: bolder;
                                 width: 100px;
                                 color: #303030;
+
                             }
+
                             #address {
-                                border: 1px solid #000090;
                                 background-color: #f0f0ff;
+                                font-style: "Roboto";
+                                font-weight: 200;
                                 width: 480px;
                                 padding-right: 2px;
+                                margin-top: 4px;
+                                border: none;
                             }
+
                             #address td {
                                 font-size: 10pt;
                             }
+
+                            #address tr {
+                                border: collapse;
+                            }
+
                             .field {
-                                width: 99%;
+                                width: 100%;
                             }
                             .slimField {
-                                width: 80px;
+                                width: 100px;
                             }
                             .wideField {
                                 width: 200px;
@@ -95,8 +117,12 @@
                                 margin-bottom: 2px;
                             }
 
-                        </style>
+                            #garbage-day {
+                              margin-bottom: 20px;
+                            }
 
+                        </style>
+                        <div class="autocomplete-window">
                         <div id="locationField">
                             <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
                         </div>
@@ -141,7 +167,7 @@
                         <%= f.hidden_field :address %>
                     </div>
 
-                    <div class="field">
+                    <div class="field" id="garbage-day">
                         <%= f.label :garbage_day %><br>
                         <%= f.select(:garbaje_day, ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], { :class => 'form-control'}) %>
                     </div>
@@ -150,7 +176,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" id="mynewpostclose">Close</button>
-                    <%= f.submit "Create", class: "btn btn-primary" %>
+                    <%= f.submit "Create", class: "btn btn-primary", id: "create-button" %>
                 </div>
             </div>
         </div>
