@@ -20,7 +20,7 @@ function check_if_in_view() {
         (element_top_position <= window_bottom_position)) {
         if ($($element).hasClass( "when-you-sell" )) {
           $element.addClass('fadeInLeftBig');
-        }
+      }
         else if ($($element).hasClass( "when-you-buy" )) {
           $element.addClass('fadeInRightBig');
         }
@@ -28,9 +28,6 @@ function check_if_in_view() {
           $element.addClass('fadeInUpBig');
         }
         else if ($($element).hasClass( "login-container" )) {
-          $element.addClass('fadeInUpBig');
-        }
-        else if ($($element).hasClass( "footer-distributed" )) {
           $element.addClass('fadeInUpBig');
         }
     }

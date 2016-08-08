@@ -32,8 +32,14 @@ class SpacesController < ApplicationController
         format.js
       else
         # format.html { render :new }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
-        format.js
+        format.json {
+          # raise 'in json'
+          render json: @space.errors, status: :unprocessable_entity
+        }
+        format.js {
+          # raise 'in js'
+          render json: @space.errors, status: :unprocessable_entity
+        }
       end
     end
   end
