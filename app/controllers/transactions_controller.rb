@@ -22,6 +22,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = Transaction.new
+    @transaction_price = @quantity
     @user = current_user
     @spaces = Space.all
     @space = Space.find(params[:space_id])
@@ -30,56 +31,48 @@ class TransactionsController < ApplicationController
   end
 
   def create
+    @amount = 500
     @transaction = Transaction.new(transaction_params)
     @user = current_user
-    if @transaction.save
 
-        # payment info of user entered for activemerchant
-        #must hardcode credit card number since this is default accepted by Stripe
-        paymentInfo = ActiveMerchant::Billing::CreditCard.new(
-            :number             => '4242424242424242',
-            :month              => @user.credit_card_month,
-            :year               => @user.credit_card_year,
-            :verification_value => @user.credit_card_verification_value)
+      if @transaction.save
 
-        #is this necessary?
-        purchaseOptions = {:billing_address => {
-            :name     => "hkhkh",
-            :address1 => "njfkdjsfk",
-            :city     => "@user.city",
-            :state    => "@user.state",
-            :zip      => "@user.zip"
-    }}
+        customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          :source  => params[:stripeToken]
+        )
 
-    response = EXPRESS_GATEWAY.purchase((122 * 2).to_i, paymentInfo, purchaseOptions)
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @amount,
+          :description => 'Rails Stripe customer',
+          :currency    => 'usd'
+        )
 
-    if response.success? then
-      logger.debug "charge successful"
-      @space = Space.find(transaction_params[:sell_space_id])
-      # substract quantity from capacity on users profile page and list of locations
-      @space.capacity -= @transaction.quantity
-      @space.update_attributes(capacity: @space.capacity )
-      redirect_to user_path(@user)
-      @sell_user = User.find(@space.user_id)
+          logger.debug "*******CHARGE SUCCESSFULL*********"
+          @space = Space.find(transaction_params[:sell_space_id])
+          @quantity = params[:quantity].to_s
+          @space.capacity -= @transaction.quantity
+          @space.update_attributes(capacity: @space.capacity )
+          redirect_to user_path(@user)
+          @sell_user = User.find(@space.user_id)
 
+          # email pdf
+        pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+        sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
+            #sends email containing html in transactions show view and PDF to buy_user
 
-      #create PDF receipts for both buyer and seller from html templates under transactions
-      pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-      sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
+        TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
+        TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
-      #sends email containing PDF receipt and email body
-      TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
-      TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
+        flash[:notice] = "Transaction was successfully created! View receipt in your email. "
 
-      flash[:notice] = "Transaction was successfully created! View receipt in your email. "
-
-
-    else
-      flash[:alert] = "Whoops, check your payment credentials and try again!"
-      redirect_to edit_user_path(current_user)
-      console.log
-    end
-    end
+      else
+        # rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to edit_user_path(current_user)
+        # console.log
+      end
   end
 
 

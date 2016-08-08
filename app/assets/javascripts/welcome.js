@@ -2,6 +2,8 @@ $(document).on('ready', function() {
 var $animation_elements = [$('.when-you-sell'), $('.when-you-buy'), $('.signup-container'), $('.login-container')] ;
 var $window = $(window);
 
+
+
 function check_if_in_view() {
   var window_height = $window.height();
   var window_top_position = $window.scrollTop();
