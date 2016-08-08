@@ -28,9 +28,9 @@ function check_if_in_view() {
         else if ($($element).hasClass( "login-container" )) {
           $element.addClass('fadeInUpBig');
         }
-        else if ($($element).hasClass( "footer-distributed" )) {
-          $element.addClass('fadeInUpBig');
-        }
+        // else if ($($element).hasClass( "footer-distributed" )) {
+        //   $element.addClass('fadeInUp');
+        // }
     }
   });
 }
