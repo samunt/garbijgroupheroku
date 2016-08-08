@@ -34,23 +34,20 @@ class TransactionsController < ApplicationController
     @amount = 500
     @transaction = Transaction.new(transaction_params)
     @user = current_user
-    if @transaction.save
 
-      #sends email containing html in transactions show view and PDF to buy_user
-      # TransactionMailer.receipt_email(@user).deliver_later
+      if @transaction.save
 
-      customer = Stripe::Customer.create(
-        :email => params[:stripeEmail],
-        :source  => params[:stripeToken]
-      )
+        customer = Stripe::Customer.create(
+          :email => params[:stripeEmail],
+          :source  => params[:stripeToken]
+        )
 
-      charge = Stripe::Charge.create(
-        :customer    => customer.id,
-        :amount      => @amount,
-        :description => 'Rails Stripe customer',
-        :currency    => 'usd'
-      )
-
+        charge = Stripe::Charge.create(
+          :customer    => customer.id,
+          :amount      => @amount,
+          :description => 'Rails Stripe customer',
+          :currency    => 'usd'
+        )
 
           logger.debug "*******CHARGE SUCCESSFULL*********"
           @space = Space.find(transaction_params[:sell_space_id])
@@ -59,22 +56,23 @@ class TransactionsController < ApplicationController
           @space.update_attributes(capacity: @space.capacity )
           redirect_to user_path(@user)
           @sell_user = User.find(@space.user_id)
-          puts "*****************" + @sell_user.first_name
 
           # email pdf
-            pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
-            sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
+        pdf = render_to_string pdf: "receipt", template: "transactions/show.html.erb", encoding: "UTF-8"
+        sell_pdf = render_to_string pdf: "sell_receipt", template: "transactions/sell_show.html.erb", encoding: "UTF-8"
             #sends email containing html in transactions show view and PDF to buy_user
-            TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
-            TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
-            flash[:notice] = "Transaction was successfully created! View receipt in your email. "
+        TransactionMailer.receipt_email_buyer(@user, pdf).deliver_later
+        TransactionMailer.receipt_email_seller(@sell_user, sell_pdf).deliver_later
 
-        else
-          # rescue Stripe::CardError => e
-          flash[:error] = e.message
-          redirect_to edit_user_path(current_user)
-        end
+        flash[:notice] = "Transaction was successfully created! View receipt in your email. "
+
+      else
+        # rescue Stripe::CardError => e
+        flash[:error] = e.message
+        redirect_to edit_user_path(current_user)
+        # console.log
+      end
   end
 
 
