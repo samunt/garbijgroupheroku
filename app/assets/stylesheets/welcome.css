@@ -28,6 +28,8 @@
   }
 }
 
+
+
 .title-garbage-bag{
   margin: auto;
   display: block;
@@ -308,4 +310,59 @@ video#video {
   /*position: fixed;*/
   /*top: 0;*/
   z-index: -1;
+}
+
+@media (max-width: 500px) {
+  .intro-left{
+    display: none;
+  }
+
+  .btn-front{
+    position: absolute;
+    top: 72%;
+    left: 28%;
+    transform: translate(-50%,-50%);
+  }
+
+  .intro-right{
+    float: left;
+    width: 100%;
+  }
+
+  .welcome-title{
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    right: 50%;
+  }
+
+  .welcome-subtitle{
+    position: relative;
+    right: 20%;
+    bottom: 100px;
+  }
+
+  .title-garbage-bag{
+    position: relative;
+    right: 20%;
+  }
+
+  .container{
+    display: inline;
+  }
+
+  .when-you-sell{
+    position: relative;
+    float: left;
+  }
+
+  .when-you-buy{
+    position: relative;
+    float: left;
+  }
+
+  .login{
+    position: relative;
+    width: 100%;
+  }
 }
