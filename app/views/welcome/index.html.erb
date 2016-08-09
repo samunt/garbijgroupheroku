@@ -12,7 +12,7 @@
     <h1 class="welcome-title animated fadeInDown">THE SHARED ECONOMY OF TRASH</h1>
     <h4 class="welcome-subtitle animated fadeInUp">Save time. Save money. Save yourself the hassle.</h4>
     <a style="text-align:center;" href="#newuser" class="btn-front animated fadeIn">GET STARTED!</a>
-    <a class="downward-scroll"><%= image_tag 'downward-arrow.png', class:"downward-arrow" %></a>
+    <a class="downward-scroll" href="#green-boxes"><%= image_tag 'downward-arrow.png', class:"downward-arrow" %></a>
   </div>
 </header>
 
@@ -36,7 +36,7 @@
   </div>
 
 
-  <div class="container">
+  <a name="id3"><div class="container" id="green-boxes">
     <div class="sell-container">
       <div class="when-you-sell animated">
           <h2 class="when-you-title">when do I sell?</h2>
@@ -74,13 +74,13 @@
         </ul>
       </div>
     </div>
-  </div> <!-- containter -->
+  </div></a> <!-- containter -->
 
   <div class="divider-bottom"> </div>
   <div class="intro-form">
     <div class="intro-form-container">
       <div class="signup-container animated">
-        <div id="newuser">
+      <div id="newuser">
           <%= render 'users/form' %>
         </div>
       </div>
