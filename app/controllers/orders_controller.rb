@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     #   items: [{name: "Order", description: "Order description", quantity: "1", amount: 1000}]
     # )
     # redirect_to EXPRESS_GATEWAY.redirect_url_for(response.token)
-  end
+  # end
 
   def new
     @order = Order.new(:express_token => params[:token])
