@@ -55,9 +55,7 @@
   // background-color: red;
   margin-top: 100px;
   width: 80%;
-  // border-top: 15px solid #BFCEC9;
-  // border-bottom: 15px solid #BFCEC9;
-  background-color: #D0E0DA;
+  background-color: #D3E5DB;
   border-radius: 10px;
   overflow: auto;
 
@@ -108,7 +106,6 @@
 }
 
 .column-right {
-  // background-color: blue;
   padding-right: 2%;
   padding-left: 2%;
   width: 50%;
@@ -118,6 +115,8 @@
 
 .all-list {
   list-style: none;
+  padding-top: 20px;
+  // padding-left: 10px;
 }
 
 .map-trans-btn {
