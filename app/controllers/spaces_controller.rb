@@ -24,6 +24,7 @@ class SpacesController < ApplicationController
   def create
     @user = current_user
     @space = Space.new(space_params)
+    # @count = current_user.spaces.count
     # @spaces = Space.all
     #user_id in spaces table is id of current user
     @space.user_id = params[:user_id]
@@ -31,15 +32,7 @@ class SpacesController < ApplicationController
       if @space.save
         format.js
       else
-        # format.html { render :new }
-        format.json {
-          # raise 'in json'
-          render json: @space.errors, status: :unprocessable_entity
-        }
-        format.js {
-          # raise 'in js'
-          render json: @space.errors, status: :unprocessable_entity
-        }
+        format.js
       end
     end
   end
@@ -63,10 +56,16 @@ class SpacesController < ApplicationController
     @space = @user.spaces.find(params[:id])
     render layout: false
   end
+
   def destroy
     @space = Space.find(params[:id])
     @space.destroy
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+
+    end
   end
+
   private
   def space_params
     params.require(:space).permit(:capacity, :address, :garbaje_day, :user_id)

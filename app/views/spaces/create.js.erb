@@ -1,0 +1,7 @@
+<% if @space.errors.any? %>
+  $('#mynewpost').html('<%= escape_javascript(render :partial => "space") %>');
+  console.log("errors")
+<% else %>
+  $('#mynewpost').modal('hide').empty();
+  window.location.reload();
+<% end %>
