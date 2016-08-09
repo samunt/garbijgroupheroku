@@ -3,22 +3,48 @@
   <h1 class="newtrans animated fadeInDown">NEW TRANSACTION</h1>
     <div class="trans-container animated fadeInUp">
     </br>
+
+    <div class="trans-message">
       <h4>Hey <%= @user.first_name%>,</h4> <br />
       Your garbage dropoff site: <br>
       </br>
       Address: <strong> <%= @space.address %> <br> </strong>
-      Quantity: <strong><%= @quantity %> <br><strong>
+      Quantity: <strong><%= @quantity %> <br></strong>
+      Price: $<strong><%= @quantity.to_i * 2  %></strong>
+    </div>
+
+    <style media="screen">
+      .trans-message {
+        display: inline-block;
+        text-align: center;
+        margin: 20px;
+      }
+    </style>
       <br>
       <%= form_for @transaction do |f| %>
-        <div class="form_field">
-          <%= f.hidden_field :sell_space_id, :value => @space.id %>
-          <%= f.hidden_field :quantity, :value => @quantity %>
-        </div>
-        <div class="submit">
-          <%= f.submit class: "btn-trans" %>
-        </div>
-        <!-- </div> -->
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_bQawjwGIcWIWv9OoU9Drg0KS"
+          data-amount="$200"
+          data-name="Garbij"
+          data-description="Buy your spot"
+          data-image=<%= asset_path "garbage-can.png" %>
+          data-locale="auto"
+          data-currency="cad">
+        </script>
+        <%= f.hidden_field :sell_space_id, :value => @space.id %>
+        <%= f.hidden_field :quantity, :value => @quantity %>
       <% end %>
 
-      <%= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png"), :controller => 'orders', :action => 'express_checkout' %>
+      <%#= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png"), :controller => 'orders', :action => 'express_checkout' %>
+      <div class="trans-image">
+        <%= link_to image_tag("http://www.dentistryonparkdale.com/images/icon-credit-card.png") %>
+      </div>
+
+      <style>
+        .trans-image {
+          margin-top: 20px;
+
+        }
+      </style>
     </div>

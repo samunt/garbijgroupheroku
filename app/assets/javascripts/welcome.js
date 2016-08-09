@@ -2,6 +2,8 @@ $(document).on('ready', function() {
 var $animation_elements = [$('.when-you-sell'), $('.when-you-buy'), $('.signup-container'), $('.login-container')] ;
 var $window = $(window);
 
+
+
 function check_if_in_view() {
   var window_height = $window.height();
   var window_top_position = $window.scrollTop();
@@ -18,7 +20,7 @@ function check_if_in_view() {
         (element_top_position <= window_bottom_position)) {
         if ($($element).hasClass( "when-you-sell" )) {
           $element.addClass('fadeInLeftBig');
-        }
+      }
         else if ($($element).hasClass( "when-you-buy" )) {
           $element.addClass('fadeInRightBig');
         }
@@ -28,9 +30,6 @@ function check_if_in_view() {
         else if ($($element).hasClass( "login-container" )) {
           $element.addClass('fadeInUpBig');
         }
-        // else if ($($element).hasClass( "footer-distributed" )) {
-        //   $element.addClass('fadeInUp');
-        // }
     }
   });
 }
