@@ -31,7 +31,7 @@ function makeMap(){
       position: position,
       // returns address on hover
       title: markers[i][0],
-      icon: '/assets/garbage-marker-22px.png',
+      icon: '/assets/images/garbage-marker-22px.png',
       map: map
       });
 
